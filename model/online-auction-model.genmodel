@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/online-auction/src/main/java/srcgen" editorDirectory="/online-auction.editor/src/main/java/auctionentities"
+    modelPluginID="online-auction" modelName="Online-auction-model" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    featureMapWrapperClass="" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0"
+    copyrightFields="false" publicConstructors="true" interfaceNamePattern="" operationReflection="true"
+    importOrganizing="true">
+  <foreignModel>online-auction-model.ecore</foreignModel>
+  <genPackages prefix="Auction" disposableProviderFactory="true" interfacePackageSuffix="interfaces"
+      classPackageSuffix="implementation" ecorePackage="online-auction-model.ecore#/">
+    <genClasses ecoreClass="online-auction-model.ecore#//User">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//User/user_id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//User/username"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//User/password"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//User/address"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//User/FamilyName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//User/administrator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//User/email"/>
+      <genOperations ecoreOperation="online-auction-model.ecore#//User/placeBid"/>
+      <genOperations ecoreOperation="online-auction-model.ecore#//User/getItemsOnAuction"/>
+      <genOperations ecoreOperation="online-auction-model.ecore#//User/postNewAuction">
+        <genParameters ecoreParameter="online-auction-model.ecore#//User/postNewAuction/newItem"/>
+      </genOperations>
+      <genOperations ecoreOperation="online-auction-model.ecore#//User/deleteItem">
+        <genParameters ecoreParameter="online-auction-model.ecore#//User/deleteItem/item_id"/>
+      </genOperations>
+      <genOperations ecoreOperation="online-auction-model.ecore#//User/deleteUser">
+        <genParameters ecoreParameter="online-auction-model.ecore#//User/deleteUser/user_id"/>
+      </genOperations>
+      <genOperations ecoreOperation="online-auction-model.ecore#//User/createCategory"/>
+      <genOperations ecoreOperation="online-auction-model.ecore#//User/deleteCategory"/>
+      <genOperations ecoreOperation="online-auction-model.ecore#//User/sendMessage">
+        <genParameters ecoreParameter="online-auction-model.ecore#//User/sendMessage/message"/>
+      </genOperations>
+      <genOperations ecoreOperation="online-auction-model.ecore#//User/getSoldItems"/>
+      <genOperations ecoreOperation="online-auction-model.ecore#//User/getBuyedItems"/>
+    </genClasses>
+    <genClasses ecoreClass="online-auction-model.ecore#//Item">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//Item/item_id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//Item/initialPrice"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//Item/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//Item/photo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//Item/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//Item/available"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//Item/startTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//Item/endTime"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference online-auction-model.ecore#//Item/category"/>
+    </genClasses>
+    <genClasses ecoreClass="online-auction-model.ecore#//Message">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//Message/message_id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//Message/topic"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//Message/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//Message/from"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//Message/to"/>
+    </genClasses>
+    <genClasses ecoreClass="online-auction-model.ecore#//Category">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//Category/category_id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//Category/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference online-auction-model.ecore#//Category/superCategory"/>
+    </genClasses>
+    <genClasses ecoreClass="online-auction-model.ecore#//SoldItem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//SoldItem/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//SoldItem/date"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute online-auction-model.ecore#//SoldItem/price"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference online-auction-model.ecore#//SoldItem/buyer"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference online-auction-model.ecore#//SoldItem/seller"/>
+    </genClasses>
+    <genClasses ecoreClass="online-auction-model.ecore#//AudioAndVideo"/>
+    <genClasses ecoreClass="online-auction-model.ecore#//Bekleidung"/>
+    <genClasses ecoreClass="online-auction-model.ecore#//Buecher"/>
+    <genClasses ecoreClass="online-auction-model.ecore#//Computer"/>
+    <genClasses ecoreClass="online-auction-model.ecore#//Fahrzeuge"/>
+    <genClasses ecoreClass="online-auction-model.ecore#//FotoAndOptik"/>
+    <genClasses ecoreClass="online-auction-model.ecore#//Gesundheit"/>
+    <genClasses ecoreClass="online-auction-model.ecore#//HaendyAndCommunication"/>
+    <genClasses ecoreClass="online-auction-model.ecore#//LebensmittelAndGetraenke"/>
+    <genClasses ecoreClass="online-auction-model.ecore#//MusikInstrumente"/>
+    <genClasses ecoreClass="online-auction-model.ecore#//Schmuck"/>
+    <genClasses ecoreClass="online-auction-model.ecore#//SpielWahren"/>
+    <genClasses ecoreClass="online-auction-model.ecore#//SportAndFreizeit"/>
+    <genClasses ecoreClass="online-auction-model.ecore#//WerkzeugeAndMaschinen"/>
+    <genClasses ecoreClass="online-auction-model.ecore#//Wohnen"/>
+    <genClasses ecoreClass="online-auction-model.ecore#//Sonstiges"/>
+  </genPackages>
+</genmodel:GenModel>
