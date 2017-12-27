@@ -1,38 +1,76 @@
 /**
  */
-package auction;
+package main.java.auction;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class User {
 
-	protected static final int USER_ID_EDEFAULT = 0;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	protected int user_id;
 
-	protected int user_id = USER_ID_EDEFAULT;
+	protected String username;
 
-	protected static final String USERNAME_EDEFAULT = null;
+	protected String password;
 
-	protected String username = USERNAME_EDEFAULT;
+	protected String strasse;
+	protected String hausNummer;
+	protected String stadt;
+	protected String plz;
 
-	protected static final String PASSWORD_EDEFAULT = null;
+	protected String familyName;
+	protected String firstName;
 
-	protected String password = PASSWORD_EDEFAULT;
+	protected String email;
 
-	protected static final String ADDRESS_EDEFAULT = null;
+	protected boolean administrator;
 
-	protected String address = ADDRESS_EDEFAULT;
+	public String getStrasse() {
+		return strasse;
+	}
 
-	protected static final String FAMILY_NAME_EDEFAULT = null;
+	public void setStrasse(String strasse) {
+		this.strasse = strasse;
+	}
 
-	protected String familyName = FAMILY_NAME_EDEFAULT;
+	public String getHausNummer() {
+		return hausNummer;
+	}
 
-	protected static final boolean ADMINISTRATOR_EDEFAULT = false;
+	public void setHausNummer(String hausNummer) {
+		this.hausNummer = hausNummer;
+	}
 
-	protected boolean administrator = ADMINISTRATOR_EDEFAULT;
+	public String getStadt() {
+		return stadt;
+	}
 
-	protected static final String EMAIL_EDEFAULT = null;
+	public void setStadt(String stadt) {
+		this.stadt = stadt;
+	}
 
-	protected String email = EMAIL_EDEFAULT;
+	public String getPlz() {
+		return plz;
+	}
+
+	public void setPlz(String plz) {
+		this.plz = plz;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
 	public int getUser_id() {
 		return user_id;
@@ -65,12 +103,12 @@ public class User {
 	}
 
 	public String getAddress() {
-		return address;
+		return strasse;
 	}
 
 	public void setAddress(String newAddress) {
-		String oldAddress = address;
-		address = newAddress;
+		String oldAddress = strasse;
+		strasse = newAddress;
 
 	}
 

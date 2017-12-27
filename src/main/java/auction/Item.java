@@ -1,42 +1,30 @@
 
-package auction;
+package main.java.auction;
 
 import java.util.Date;
 import java.util.Locale.Category;
 
-public class Item {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-	protected static final int ITEM_ID_EDEFAULT = 0;
+@Entity
+public abstract class Item {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	protected int item_id;
+	protected double initialPrice;
+	protected String name;
+	protected String photo;
 
-	protected int item_id = ITEM_ID_EDEFAULT;
+	protected String description;
 
-	protected static final double INITIAL_PRICE_EDEFAULT = 0.0;
+	protected boolean available;
 
-	protected double initialPrice = INITIAL_PRICE_EDEFAULT;
-
-	protected static final String NAME_EDEFAULT = null;
-
-	protected String name = NAME_EDEFAULT;
-
-	protected static final String PHOTO_EDEFAULT = null;
-
-	protected String photo = PHOTO_EDEFAULT;
-
-	protected static final String DESCRIPTION_EDEFAULT = null;
-
-	protected String description = DESCRIPTION_EDEFAULT;
-
-	protected static final boolean AVAILABLE_EDEFAULT = false;
-
-	protected boolean available = AVAILABLE_EDEFAULT;
-
-	protected static final Date START_TIME_EDEFAULT = null;
-
-	protected Date startTime = START_TIME_EDEFAULT;
-
-	protected static final Date END_TIME_EDEFAULT = null;
-
-	protected Date endTime = END_TIME_EDEFAULT;
+	protected Date startTime;
+	protected Date endTime;
 
 	protected Category category;
 

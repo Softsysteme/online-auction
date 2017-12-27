@@ -1,25 +1,28 @@
 /**
  */
-package auction;
+package main.java.auction;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+@Entity
 public class SoldItem {
 
-	protected static final String NAME_EDEFAULT = null;
+	protected String name;
+	protected Date date;
 
-	protected String name = NAME_EDEFAULT;
+	protected double price;
 
-	protected static final Date DATE_EDEFAULT = null;
-
-	protected Date date = DATE_EDEFAULT;
-
-	protected static final double PRICE_EDEFAULT = 0.0;
-
-	protected double price = PRICE_EDEFAULT;
-
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "User_user_id")
 	protected User buyer;
-
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "User_user_id")
 	protected User seller;
 
 	public String getName() {

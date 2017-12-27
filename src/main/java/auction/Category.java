@@ -1,17 +1,25 @@
 /**
  */
-package auction;
+package main.java.auction;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Category {
 
-	protected static final int CATEGORY_ID_EDEFAULT = 0;
-
-	protected int category_id = CATEGORY_ID_EDEFAULT;
-
-	protected static final String NAME_EDEFAULT = null;
-
-	protected String name = NAME_EDEFAULT;
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	protected int category_id;
+	
+	protected String name;
+	 @OneToOne(fetch=FetchType.LAZY)
+	    @JoinColumn(name="category_category_id")
 	protected Category superCategory;
 
 	public int getCategory_id() {

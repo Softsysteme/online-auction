@@ -12,10 +12,13 @@ C:\Users\Mpouma\eclipse-workspace\online-auction\src\main\java\auction\Lebensmit
 C:\Users\Mpouma\eclipse-workspace\online-auction\src\main\java\auction\Category.java
 C:\Users\Mpouma\eclipse-workspace\online-auction\src\main\java\auction\Computer.java
 C:\Users\Mpouma\eclipse-workspace\online-auction\src\main\java\auction\SoldItem.java
+C:\Users\Mpouma\eclipse-workspace\online-auction\src\main\java\sessionBeans\UserSession.java
+C:\Users\Mpouma\eclipse-workspace\online-auction\src\main\java\auction\HaendyAndKommunication.java
 C:\Users\Mpouma\eclipse-workspace\online-auction\src\main\java\auction\User.java
 C:\Users\Mpouma\eclipse-workspace\online-auction\src\main\java\auction\Bekleidung.java
 C:\Users\Mpouma\eclipse-workspace\online-auction\src\main\java\auction\Buecher.java
 C:\Users\Mpouma\eclipse-workspace\online-auction\src\main\java\auction\Fahrzeuge.java
 C:\Users\Mpouma\eclipse-workspace\online-auction\src\main\java\auction\Sonstiges.java
-C:\Users\Mpouma\eclipse-workspace\online-auction\src\main\java\auction\HaendyAndCommunication.java
-C:\Users\Mpouma\eclipse-workspace\online-auction\src\main\java\auction\SpielWahren.java
+C:\Users\Mpouma\eclipse-workspace\online-auction\src\main\java\exceptions\DAOException.java
+C:\Users\Mpouma\eclipse-workspace\online-auction\src\main\java\auction\SpielWaren.java
+C:\Users\Mpouma\eclipse-workspace\online-auction\src\main\java\messagedrivenBeans\NotificationBean.java

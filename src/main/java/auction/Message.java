@@ -1,27 +1,20 @@
 /**
  */
-package auction;
+package main.java.auction;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Message {
 
-	protected static final int MESSAGE_ID_EDEFAULT = 0;
+	protected int message_id;
 
-	protected int message_id = MESSAGE_ID_EDEFAULT;
+	protected String topic;
 
-	protected static final String TOPIC_EDEFAULT = null;
+	protected String text;
+	protected int from;
 
-	protected String topic = TOPIC_EDEFAULT;
-
-	protected static final String TEXT_EDEFAULT = null;
-
-	protected String text = TEXT_EDEFAULT;
-
-	protected static final int FROM_EDEFAULT = 0;
-
-	protected int from = FROM_EDEFAULT;
-
-	protected static final int TO_EDEFAULT = 0;
-	protected int to = TO_EDEFAULT;
+	protected int to;
 
 	public int getMessage_id() {
 		return message_id;
