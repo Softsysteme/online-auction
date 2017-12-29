@@ -2,16 +2,22 @@
  */
 package main.java.auction;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
-public class SoldItem {
+public class SoldItem implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected String name;
 	protected Date date;
 
@@ -20,17 +26,17 @@ public class SoldItem {
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "User_user_id")
 	protected User buyer;
-	
+
+	@Id
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "User_user_id")
-	protected User seller;
+	@JoinColumn(name = "Item_item_id")
+	protected Item item;
 
 	public String getName() {
 		return name;
 	}
 
 	public void setName(String newName) {
-		String oldName = name;
 		name = newName;
 
 	}
@@ -40,7 +46,6 @@ public class SoldItem {
 	}
 
 	public void setDate(Date newDate) {
-		Date oldDate = date;
 		date = newDate;
 	}
 
@@ -49,7 +54,6 @@ public class SoldItem {
 	}
 
 	public void setPrice(double newPrice) {
-		double oldPrice = price;
 		price = newPrice;
 	}
 
@@ -59,19 +63,7 @@ public class SoldItem {
 	}
 
 	public void setBuyer(User newBuyer) {
-		User oldBuyer = buyer;
 		buyer = newBuyer;
-
-	}
-
-	public User getSeller() {
-
-		return seller;
-	}
-
-	public void setSeller(User newSeller) {
-		User oldSeller = seller;
-		seller = newSeller;
 
 	}
 

@@ -12,6 +12,7 @@ main\java\auction\MusikInstrumente.class
 main\java\auction\SportAndFreizeit.class
 main\java\auction\FotoAndOptik.class
 main\java\auction\User.class
+main\java\auction\Bid.class
 main\java\auction\Item.class
 main\java\messagedrivenBeans\NotificationBean.class
 main\java\auction\Category.class
@@ -20,5 +21,6 @@ main\java\auction\HaendyAndKommunication.class
 main\java\auction\SpielWaren.class
 main\java\exceptions\DAOException.class
 main\java\auction\SoldItem.class
+main\java\managedBeans\UserLogin.class
 main\java\auction\LebensmittelAndGetraenke.class
 main\java\auction\AudioAndVideo.class

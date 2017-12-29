@@ -142,30 +142,156 @@
 															<label>Benutzer Anmeldung:</label>
 														</div>
 														<div class="form-group">
-															<label>Benutzername:</label> <input type="text"
-																class="form-control" value="" />
+															<label>Benutzername:</label>
+															<h:input type="text" class="form-control"
+																value="#{userLogin.username}" required="true" />
 														</div>
+														<h:form>
+															<div class="form-group">
+																<label>Passwort:</label>
+																<h:input type="text" class="form-control"
+																	value="#{userLogin.password}" required="true" />
+																<div >
+<!-- 																	<h:CommandButton id="myLogInButton" value="Anmelden" -->
+<!-- 																		action="#{userLogin.login}" -->
+<!-- 																		oncomplete="myLoginFunction()"> -->
+<!-- 																		Anmelden</h:CommandButton> -->
+																</div>
+																<hr />
+																<div class="list-group">
+																	<a href="#" class="list-group-item">Haben sie ihr
+																		Passwort vergessen?</a>
+																	<hr />
+																	<a href="#register" class="list-group-item"
+																		data-toggle="tab">Hier können sie sich neu
+																		registrieren</a>
+																	<hr />
 
+																</div>
+
+															</div>
+														</h:form>
+														<h3>Contact Details</h3>
+														<p>
+															<i class="fa fa-globe fa-muted fa-fw"></i> <a href="#">http://www.website.com</a>
+														</p>
+														<p>
+															<i class="fa fa-phone fa-muted fa-fw"></i>
+															017673987837389
+														</p>
+														<p>
+															<i class="fa fa-building-o fa-muted fa-fw"></i> Märkische
+															Str. 3. <br />44222, Dortmund
+														</p>
+														<p>
+															<i class="fa fa-envelope-o fa-muted fa-fw"></i> <a
+																href="#">max.mustermann@website.de</a>
+														</p>
+														<ul class="list-inline">
+															<li><a class="facebook-link" href="#"><i
+																	class="fa fa-facebook-square fa-2x"></i></a></li>
+															<li><a class="twitter-link" href="#"><i
+																	class="fa fa-twitter-square fa-2x"></i></a></li>
+															<li><a class="linkedin-link" href="#"><i
+																	class="fa fa-linkedin-square fa-2x"></i></a></li>
+															<li><a class="google-plus-link" href="#"><i
+																	class="fa fa-google-plus-square fa-2x"></i></a></li>
+														</ul>
+													</div>
+
+												</div>
+
+											</div>
+
+											<div class="tab-pane fade in" id="loggeduser">
+
+												<div class="row">
+													<div class="col-lg-2 col-md-3">
+														<!-- 														<img class="img-responsive img-profile" -->
+														<!-- 															src="img/profile-full.jpg" alt="" /> -->
+
+														<div class="list-group">
+															<a href="#audio-video" data-toggle="tab"
+																class="list-group-item">Audio und Video</a> <a
+																href="#bekleidung" data-toggle="tab"
+																class="list-group-item">Bekleidung</a> <a
+																href="#buecher" data-toggle="tab"
+																class="list-group-item">Bücher</a> <a href="#fahrzeuge"
+																data-toggle="tab" class="list-group-item">Fahrzeuge</a>
+															<a href="#foto-optik" data-toggle="tab"
+																class="list-group-item">Foto und Optik</a> <a
+																href="#gesundheit" data-toggle="tab"
+																class="list-group-item">Gesundheit</a> <a
+																href="#haendy-telefon" data-toggle="tab"
+																class="list-group-item">Händy und Telefon</a> <a
+																href="#lebensmittel" data-toggle="tab"
+																class="list-group-item">Lebensmittel</a> <a
+																href="#musikinstrumente" data-toggle="tab"
+																class="list-group-item">Musikinstrumente</a> <a
+																href="#schmuck" data-toggle="tab"
+																class="list-group-item">Schmuck</a> <a
+																href="#spielwaren" data-toggle="tab"
+																class="list-group-item">Spielwaren</a> <a
+																href="#sport-freizeit" data-toggle="tab"
+																class="list-group-item">Sport und Freizeit</a> <a
+																href="#werkzeuge" data-toggle="tab"
+																class="list-group-item">Werkzeuge</a> <a href="#wohnen"
+																data-toggle="tab" class="list-group-item">Wohnen</a> <a
+																href="#sonstiges" data-toggle="tab"
+																class="list-group-item">Sonstiges</a> <a href="#alle"
+																data-toggle="tab" class="list-group-item">Übersicht
+																aller Auktionen</a>
+
+														</div>
+													</div>
+													<div class="col-lg-7 col-md-5">
+														<h3>Meine gestellte Auktionen</h3>
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+															elit. Nunc placerat diam quis nisl vestibulum dignissim.
+															In hac habitasse platea dictumst. Interdum et malesuada
+															fames ac ante ipsum primis in faucibus. Pellentesque
+															habitant morbi tristique senectus et netus et malesuada
+															fames ac turpis egestas. Etiam placerat nunc ut tellus
+															tristique, non posuere neque iaculis.</p>
+
+														<br /> <br />
+														<hr />
+														<h3>
+															Meine gewonene Auktionen/h3>
+															<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+																elit. Nunc placerat diam quis nisl vestibulum dignissim.
+																In hac habitasse platea dictumst. Interdum et malesuada
+																fames ac ante ipsum primis in faucibus. Pellentesque
+																habitant morbi tristique senectus et netus et malesuada
+																fames ac turpis egestas. Etiam placerat nunc ut tellus
+																tristique, non posuere neque iaculis.</p>
+
+															<h3>
+																Meine beobachtete Auktionen/h3>
+																<p>Lorem ipsum dolor sit amet, consectetur
+																	adipiscing elit. Nunc placerat diam quis nisl
+																	vestibulum dignissim. In hac habitasse platea dictumst.
+																	Interdum et malesuada fames ac ante ipsum primis in
+																	faucibus. Pellentesque habitant morbi tristique
+																	senectus et netus et malesuada fames ac turpis egestas.
+																	Etiam placerat nunc ut tellus tristique, non posuere
+																	neque iaculis.</p>
+													</div>
+													<div class="col-lg-2 col-md-3">
 														<div class="form-group">
-															<label>Passwort:</label> <input type="text"
-																class="form-control" value="" />
-															<div>
-																<button type="submit" class="btn btn-default">
-																	Anmelden</button>
-															</div>
-															<hr />
-															<div class="list-group">
-																<a href="#" class="list-group-item">Haben sie ihr
-																	Passwort vergessen?</a>
-																<hr />
-																<a href="#register" class="list-group-item"
-																	data-toggle="tab">Hier können sie sich neu
-																	registrieren</a>
-																<hr />
+															<label>Eingeloggt:</label>
+														</div>
+														<div class="form-group">
+															<label>Benutzername:</label>
+															<h:outputText type="text" class="form-control"
+																value="#{userLogin.username}" required="true" />
 
-															</div>
+															<br /> <a href="#loggeduser" class="list-group-item"
+																data-toggle="tab">Mein Bieter Konto</a>
+
 
 														</div>
+
 														<h3>Contact Details</h3>
 														<p>
 															<i class="fa fa-globe fa-muted fa-fw"></i> <a href="#">http://www.website.com</a>
@@ -722,6 +848,14 @@
 			<!-- end MAIN PAGE CONTENT -->
 			<script
 				src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+			<script>
+				function myLoginFunction(xhr, status,args) {
+					if(args.validationFailled||!args.loggedIn){
+						}
+					else{}
+					$('#myLoginButton a[href="#loggeduser"]').tab('show');
+			}
+			</script>
 		</ui:define>
 	</ui:composition>
 
