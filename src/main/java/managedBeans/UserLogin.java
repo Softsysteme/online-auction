@@ -3,12 +3,9 @@ package main.java.managedBeans;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import org.primefaces.context.PrimeFacesContext;
-import org.primefaces.context.RequestContext;
-import org.omnifaces.util.Ajax;
 
 import main.java.primefaces.PrimeFaces;
 import main.java.sessionBeans.UserSession;
@@ -62,10 +59,8 @@ public class UserLogin {
 					"Benutzername  oder Passwort falsch");
 		}
 		PrimeFacesContext.getCurrentInstance().addMessage(null, message);
-		//PrimeFacesContext.getCurrentInstance().validationFailed();
-		 PrimeFaces.current().ajax().addCallbackParam("loggedIn", loggedIn);
-	
-	
+		// PrimeFacesContext.getCurrentInstance().validationFailed();
+		PrimeFaces.current().ajax().addCallbackParam("loggedIn", loggedIn);
 
 	}
 }
