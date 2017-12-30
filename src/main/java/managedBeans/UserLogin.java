@@ -6,6 +6,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
+import org.primefaces.context.PrimeFacesContext;
+import org.primefaces.context.RequestContext;
+import org.omnifaces.util.Ajax;
+
+import main.java.primefaces.PrimeFaces;
 import main.java.sessionBeans.UserSession;
 
 @ManagedBean
@@ -48,7 +53,7 @@ public class UserLogin {
 		// if (username != null && password != null && userSession != null
 		// && username.equals(userSession.logOnPerUserName(username,
 		// password).getUsername())) {
-		if (username != null && password != null && username.equals("admin") && password.equals("admin")) {
+		if (username != null && username.equals("admin") && password != null && password.equals("admin")) {
 			this.setLoggedIn(true);
 			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Willkommen", username);
 		} else {
@@ -56,8 +61,11 @@ public class UserLogin {
 			message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Fehler",
 					"Benutzername  oder Passwort falsch");
 		}
+		PrimeFacesContext.getCurrentInstance().addMessage(null, message);
+		//PrimeFacesContext.getCurrentInstance().validationFailed();
+		 PrimeFaces.current().ajax().addCallbackParam("loggedIn", loggedIn);
+	
+	
 
-		FacesContext.getCurrentInstance().addMessage(null, message);
-		// PrimeFaces.current().ajax().addCallbackParam("loggedIn", loggedIn);
 	}
 }

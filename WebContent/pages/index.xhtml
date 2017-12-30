@@ -141,21 +141,23 @@
 														<div class="form-group">
 															<label>Benutzer Anmeldung:</label>
 														</div>
-														<div class="form-group">
-															<label>Benutzername:</label>
-															<h:inputText type="text" class="form-control"
-																value="#{userLogin.username}" required="true" />
-														</div>
-														<h:form>
+
+														<h:form id="anmeldungform">
+															<div class="form-group">
+																<label>Benutzername:</label>
+																<h:inputText type="text" class="form-control"
+																	value="#{userLogin.username}" required="true" />
+															</div>
 															<div class="form-group">
 																<label>Passwort:</label>
-																<h:inputText type="text" class="form-control"
+																<p:password type="text" class="form-control"
 																	value="#{userLogin.password}" required="true" />
 																<div>
-																	<h:commandButton id="myLogInButton" value="Anmelden"
+																	<p:commandButton id="myLogInButton" value="Anmelden"
 																		actionListener="#{userLogin.login}"
-																		oncomplete="myLoginFunction()">
-																	</h:commandButton>
+																		oncomplete="myLoginFunction(xhr, status, args)">
+															
+																	</p:commandButton>
 																</div>
 																<hr />
 																<div class="list-group">
@@ -847,11 +849,33 @@
 				src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 			<script>
 				function myLoginFunction(xhr, status,args) {
-					if(!args.loggedIn){
+					
+					if(args.validationFailed ||!args.loggedIn){
+						alert(args.loggedIn);
+						alert(args.validationFailed);
+						alert("Anmeldung misslungen!!");
 						}
-					else{}
-					$('#myLoginButton a[href="#loggeduser"]').tab('show');
+					else{
+						
+						$('a[href="#loggeduser"]').tab('show');
+						alert("Anmeldung war erfolgreich!!");
+					
+					}
 			}
+			</script>
+
+			<script>
+			function eventFire(el, etype){
+				  if (el.fireEvent) {
+				    el.fireEvent('on' + etype);
+				  } else {
+				    var evObj = document.createEvent('Events');
+				    evObj.initEvent(etype, true, false);
+				    el.dispatchEvent(evObj);
+				  }
+				}
+
+
 			</script>
 		</ui:define>
 	</ui:composition>
