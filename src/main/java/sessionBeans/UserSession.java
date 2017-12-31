@@ -112,9 +112,9 @@ public class UserSession {
 
 	}
 
-	public void postNewAuction(Item newItem) {
+	public void postNewAuction( Item item) {
 		try {
-			em.persist(newItem);
+			em.persist(item);
 		} catch (Exception e) {
 			throw new DAOException(e);
 		}

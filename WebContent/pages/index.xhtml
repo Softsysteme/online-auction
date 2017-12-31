@@ -286,7 +286,9 @@
 																value="#{userLogin.username}" required="true" />
 
 															<br /> <a href="#loggeduser" class="list-group-item"
-																data-toggle="tab">Mein Bieter Konto</a>
+																data-toggle="tab">Mein Bieter Konto</a> <br /> <a
+																href="#auctiontab" class="list-group-item"
+																data-toggle="tab">Neu Auktion plazieren:</a>
 
 
 														</div>
@@ -544,41 +546,44 @@
 															<hr />
 															<div class="form-group">
 																<h:form id="registerForm">
-																	<table
+																	<table id="tblregister"
 																		class="table table-bordered table-striped table-hover">
 																		<tr>
 																			<td><h:outputText value="Nachname:" /></td>
 																			<td><h:inputText id="fname"
 																					value="#{userRegister.firstName}" required="true"
 																					requiredMessage="Bitte geben sie ihr Nachname ein" /></td>
-																			<td><h:message for="fname" style="color:red" /></td>
+																			<td><p:message for="fname" style="color:red" /></td>
 																		</tr>
 																		<tr>
 																			<td><h:outputText value="Vorname:" /></td>
 																			<td><h:inputText id="lname"
 																					value="#{userRegister.familyName}" required="true"
-																					requiredMessage="Bitte geben sie ihr Vorname ein" /></td>
-																			<td><h:message for="lname" style="color:red" /></td>
+																					requiredMessage="Bitte geben sie ihr Vorname ein" />
+																			</td>
+																			<td><p:message for="lname" style="color:red" /></td>
+
 																		</tr>
 																		<tr>
 																			<td><h:outputText value="Strasse:" /></td>
 																			<td><h:inputText id="street"
 																					value="#{userRegister.strasse}" required="true"
 																					requiredMessage="Bitte geben sie ihr Strasse ein" /></td>
-																			<td><h:message for="street" style="color:red" /></td>
-																			<td></td>
+																			<td><p:message for="street" style="color:red" /></td>
+
 																			<td><h:outputText value="HausNummer:" /></td>
-																			<td></td>
+
 																			<td><h:inputText id="hausNr"
 																					value="#{userRegister.hausNummer}" required="true"
 																					requiredMessage="Bitte geben sie die Hausnummer ein" /></td>
+																			<td><p:message for="hausNr" style="color:red" /></td>
 																		</tr>
 																		<tr>
 																			<td><h:outputText value="PLZ:" /></td>
-																			<td><h:inputText id="plz" value="#{userRegister.plz}"
-																					required="true"
+																			<td><h:inputText id="plz"
+																					value="#{userRegister.plz}" required="true"
 																					requiredMessage="Bitte geben sie die PLZ ein:" /></td>
-																			<td><h:message for="plz" style="color:red" /></td>
+																			<td><p:message for="plz" style="color:red" /></td>
 																		</tr>
 																		<tr>
 
@@ -586,25 +591,26 @@
 																			<td><h:inputText id="email"
 																					value="#{userRegister.email}" required="true"
 																					requiredMessage="Bitte geben sie ihre E-mail Addresse ein:" /></td>
-																			<td><h:message for="email" style="color:red" /></td>
+																			<td><p:message for="email" style="color:red" /></td>
 																		</tr>
 																		<tr>
 																			<td><h:outputText value="username:" /></td>
 																			<td><h:inputText id="usrn"
 																					value="#{userRegister.username}" required="true"
 																					requiredMessage="Bitte geben sie ihr Benutzername ein:" /></td>
-																			<td><h:message for="usrn" style="color:red" /></td>
+																			<td><p:message for="usrn" style="color:red" /></td>
 																		</tr>
 																		<tr>
 																			<td><h:outputText value="Passwort:" /></td>
 																			<td><h:inputSecret id="psw"
 																					value="#{userRegister.password}" required="true"
 																					requiredMessage="Bitte geben sie ihr Passwort ein:" /></td>
-																			<td><h:message for="psw" style="color:red" /></td>
+																			<td><p:message for="psw" style="color:red" /></td>
 																		</tr>
 																		<tr>
 																			<td />
 																			<td><p:commandButton value="Register"
+																					update="registerForm"
 																					action="#{userRegister.register}" /></td>
 																		</tr>
 																		<tr>
@@ -627,6 +633,81 @@
 
 															<div class="portlet-body"></div>
 
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="auctiontab">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<br /> <br />
+															<hr />
+															<div class="form-group">
+																<h:form id="auctionform">
+																	<table
+																		class="table table-bordered table-striped table-hover">
+																		<tr>
+																			<td><h:outputText value="Name:" /></td>
+																			<td><h:inputText id="auctname"
+																					value="#{userNewAuction.name}" required="true"
+																					requiredMessage="Bitte geben Name des Artikels  ein" /></td>
+																			<td><p:message for="auctname" style="color:red" /></td>
+																		</tr>
+																		<tr>
+																			<td><h:outputText value="Beschreibung:" /></td>
+																			<td><h:inputTextarea id="auctbeschr" rows="10"
+																					cols="100" value="#{userNewAuction.description}"
+																					required="true"
+																					requiredMessage="Bitte geben sie ihr Vorname ein" />
+																			</td>
+																			<td><p:message for="auctbeschr"
+																					style="color:red" /></td>
+
+																		</tr>
+																		<tr>
+																			<td><h:outputText value="Preis:" /></td>
+																			<td><h:inputText id="auctpreis"
+																					value="#{userNewAuction.initialPrice}"
+																					required="true"
+																					requiredMessage="Bitte geben sie den Preis ein" /></td>
+																			<td><p:message for="auctpreis" style="color:red" /></td>
+																		</tr>
+																		<tr>
+																			<td><h:outputText value="Kategorie:" /></td>
+
+																			<td colspan="6" rowspan="5"><h:selectOneMenu width="100%" id="auctkategorie"
+																					value="#{userNewAuction.category}" required="true"
+																					requiredMessage="Bitte wählen sie eine Kategorie aus" /></td>
+																			<td><f:selectItem itemValue="Audio und Video"
+																					itemLabel="udio und Video" /> <f:selectItem
+																					itemValue="Bekleidung" itemLabel="Bekleidung" /> <f:selectItem
+																					itemValue="Computer" itemLabel="Computer" /></td>
+																			<td><p:message for="auctkategorie"
+																					style="color:red" /></td>
+																		</tr>
+
+																		<tr>
+
+																			<td><h:outputText value="Foto:" /></td>
+																			<td><p:fileUpload value="#{userNewAuction.file}"
+																					mode="simple" skinSimple="true" /></td>
+																		</tr>
+
+
+																		<tr>
+																			<td />
+																			<td><p:commandButton value="Submit"
+																					update="auctionform"
+																					action="#{userNewAuction.createAuction}" /></td>
+																		</tr>
+																		<tr>
+																			<td><h:outputLink value="home.xhtml">Home</h:outputLink></td>
+																		</tr>
+																	</table>
+																</h:form>
+															</div>
 														</div>
 														<div class="col-lg-6"></div>
 													</div>
