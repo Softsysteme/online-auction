@@ -30,6 +30,11 @@ public class User {
 	protected String plz;
 
 	protected String familyName;
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	protected String firstName;
 
 	protected String email;

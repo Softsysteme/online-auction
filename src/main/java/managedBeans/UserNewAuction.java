@@ -47,7 +47,7 @@ public class UserNewAuction {
 	protected Time startTime;
 	protected Time endTime;
 
-	protected Category category;
+	protected String category;
 
 	public UserSession getUserSession() {
 		return userSession;
@@ -113,11 +113,11 @@ public class UserNewAuction {
 		this.endTime = endTime;
 	}
 
-	public Category getCategory() {
+	public String getCategory() {
 		return category;
 	}
 
-	public void setCategory(Category category) {
+	public void setCategory(String category) {
 		this.category = category;
 	}
 
@@ -166,7 +166,7 @@ public class UserNewAuction {
 		}
 
 		((Item) item).setName(this.getName());
-		((Item) item).setCategory(this.category);
+		//((Item) item).setCategory(this.category);
 		((Item) item).setDescription(this.getDescription());
 		((Item) item).setInitialPrice(this.getInitialPrice());
 		((Item) item).setPhoto(this.getPhoto());

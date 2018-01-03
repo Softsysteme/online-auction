@@ -20,7 +20,7 @@ import main.java.exceptions.DAOException;
 @Stateless
 public class UserSession {
 	private static final String SELECT_PER_EMAIL = "SELECT u FROM User WHERE u.email=:email AND u.password=:password";
-	private static final String SELECT_PER_USERNAME = "SELECT u FROM users WHERE u.email=:username AND u.password=:password";
+	private static final String SELECT_PER_USERNAME = "from User u where  u.username=:username AND u.password=:password";
 	private static final String PARAM_EMAIL = "email";
 	private static final String PARAM_USERNAME = "username";
 
@@ -56,11 +56,11 @@ public class UserSession {
 	// find a user with his user name
 	public User logOnPerUserName(String username, String password) throws DAOException {
 		User user = null;
-		Query requete = em.createQuery(SELECT_PER_USERNAME);
-		requete.setParameter(PARAM_USERNAME, username);
-		requete.setParameter("password", password);
+		Query request = em.createQuery(SELECT_PER_USERNAME);
+		request.setParameter("username", username);
+		request.setParameter("password", password);
 		try {
-			user = (User) requete.getSingleResult();
+			user = (User) request.getSingleResult();
 		} catch (NoResultException e) {
 			return null;
 		} catch (Exception e) {

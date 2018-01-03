@@ -48,10 +48,8 @@ public class UserLogin {
 	public void login(ActionEvent event) {
 		FacesMessage message = null;
 
-		// if (username != null && password != null && userSession != null
-		// && username.equals(userSession.logOnPerUserName(username,
-		// password).getUsername())) {
-		if (username != null && username.equals("admin") && password != null && password.equals("admin")) {
+		if (username != null && password != null && userSession != null
+				&& username.equals(userSession.logOnPerUserName(username, password).getUsername())) {
 			this.setLoggedIn(true);
 			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Willkommen", username);
 		} else {
