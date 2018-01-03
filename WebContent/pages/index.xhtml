@@ -5,7 +5,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui">
 
 <h:body>
 	<ui:composition template="templates/auction/common-layout.xhtml">
@@ -614,12 +614,13 @@
 																					action="#{userRegister.register}" /></td>
 																		</tr>
 																		<tr>
-																			<td><div>
-																					<a href="#kategorien" data-toggle="tab"
-																						class="list-group-item"> zur Anmeldung</a>
-																				</div></td>
+
 																		</tr>
 																	</table>
+																	<div>
+																		<a href="#kategorien" data-toggle="tab"
+																			class="list-group-item"> zur Anmeldung</a>
+																	</div>
 																</h:form>
 															</div>
 														</div>
@@ -649,19 +650,6 @@
 															<hr />
 															<div class="form-group">
 																<h:form id="auctionform">
-																	<div class="form-group">
-																		<h:outputText value="Kategorie: " />
-																		<h:selectOneMenu style="width:125px"
-																			id="auctkategorie" value="#{userNewAuction.category}"
-																			required="true"
-																			requiredMessage="Bitte wählen sie eine Kategorie aus" />
-																		<f:selectItem itemLabel="Select One" itemValue=""
-																			noSelectionOption="true" />
-																		<f:selectItem itemLabel="Option 1" itemValue="1" />
-																		<f:selectItem itemLabel="Option 2" itemValue="2" />
-																		<f:selectItem itemLabel="Option 3" itemValue="3" />
-																		<h:message for="auctkategorie" style="color:red" />
-																	</div>
 																	<table
 																		class="table table-bordered table-striped table-hover">
 																		<tr>
@@ -689,6 +677,20 @@
 																					required="true"
 																					requiredMessage="Bitte geben sie den Preis ein" /></td>
 																			<td><p:message for="auctpreis" style="color:red" /></td>
+
+																		</tr>
+																		<tr>
+																			<td><h:outputText value="Kategorie: " /></td>
+																			<td><b:form horizontal="true">
+																					<b:inputText value="userNewAuction.categoryName"
+																						placeholder="geben sie bitte eine Kategorie an"
+																						typeahead="true"
+																						typeahead-values="Audio and Video,Bekleidung,Bücher,Fahrzeuge,Foto und Optik,Gesundheit,Händy und Telefon,Lebensmittel,Musikinstrumente,Schmuck,Spielwaren,Sport und Freizeit,Werkzeuge,Wohnene,Sonstiges" />
+
+																				</b:form></td>
+
+																			<td><h:message for="auctkategorie"
+																					style="color:red" /></td>
 																		</tr>
 																		<tr>
 

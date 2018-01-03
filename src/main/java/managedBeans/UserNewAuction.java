@@ -3,7 +3,9 @@ package main.java.managedBeans;
 import java.io.IOException;
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 import javax.ejb.EJB;
@@ -46,11 +48,47 @@ public class UserNewAuction {
 
 	protected Time startTime;
 	protected Time endTime;
+	private String categoryName;
 
-	protected String category;
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+
+	private String categoryTags = "Audio und Video, Bekleidung, Sport und Freizeit";
+
+	private static String[] categories = { "Audio and Video", "Bekleidung", "Bücher", "Fahrzeuge", "Foto und Optik",
+			"Gesundheit", "Händy und Telefon", "Lebensmittel", "Musikinstrumente", "Schmuck", "Spielwaren",
+			"Sport und Freizeit", "Werkzeuge", "Wohnene", "Sonstiges" };
+
+	public String getCategoriesCSV() {
+		StringBuilder b = new StringBuilder();
+		for (String s : categories) {
+			if (b.length() > 0) {
+				b.append(",");
+			}
+			b.append(s);
+		}
+		return b.toString();
+	}
+
+	public String[] getCategories() {
+		return categories;
+	}
 
 	public UserSession getUserSession() {
 		return userSession;
+	}
+
+	public String getCategoryTags() {
+		return categoryTags;
+	}
+
+	public void setCategoryTags(String categoryTags) {
+		this.categoryTags = categoryTags;
 	}
 
 	public void setUserSession(UserSession userSession) {
@@ -113,14 +151,6 @@ public class UserNewAuction {
 		this.endTime = endTime;
 	}
 
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
-	}
-
 	public User getOwner() {
 		return owner;
 	}
@@ -149,7 +179,7 @@ public class UserNewAuction {
 		Class<?> clazz = null;
 		Object item = null;
 		try {
-			clazz = Class.forName("main.java.sessionBeans" + this.getCategory());
+			clazz = Class.forName("main.java.sessionBeans" + "muster");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -166,7 +196,7 @@ public class UserNewAuction {
 		}
 
 		((Item) item).setName(this.getName());
-		//((Item) item).setCategory(this.category);
+		// ((Item) item).setCategory(this.category);
 		((Item) item).setDescription(this.getDescription());
 		((Item) item).setInitialPrice(this.getInitialPrice());
 		((Item) item).setPhoto(this.getPhoto());

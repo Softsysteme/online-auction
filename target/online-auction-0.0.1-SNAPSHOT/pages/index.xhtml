@@ -5,6 +5,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	 xmlns:b="http://bootsfaces.net/ui"
 	xmlns:p="http://primefaces.org/ui">
 
 <h:body>
@@ -153,11 +154,11 @@
 																<p:password type="text" class="form-control"
 																	value="#{userLogin.password}" required="true" />
 																<div>
-																	<h:commandButton id="myLogInButton" value="Anmelden"
+																	<p:commandButton id="myLogInButton" value="Anmelden"
 																		actionListener="#{userLogin.login}"
 																		oncomplete="myLoginFunction(xhr, status, args)">
-															
-																	</h:commandButton>
+
+																	</p:commandButton>
 																</div>
 																<hr />
 																<div class="list-group">
@@ -286,7 +287,9 @@
 																value="#{userLogin.username}" required="true" />
 
 															<br /> <a href="#loggeduser" class="list-group-item"
-																data-toggle="tab">Mein Bieter Konto</a>
+																data-toggle="tab">Mein Bieter Konto</a> <br /> <a
+																href="#auctiontab" class="list-group-item"
+																data-toggle="tab">Neu Auktion plazieren:</a>
 
 
 														</div>
@@ -544,66 +547,81 @@
 															<hr />
 															<div class="form-group">
 																<h:form id="registerForm">
-																	<table
+																	<table id="tblregister"
 																		class="table table-bordered table-striped table-hover">
 																		<tr>
 																			<td><h:outputText value="Nachname:" /></td>
 																			<td><h:inputText id="fname"
-																					value="#{user.firstName}" required="true"
+																					value="#{userRegister.firstName}" required="true"
 																					requiredMessage="Bitte geben sie ihr Nachname ein" /></td>
-																			<td><h:message for="fname" style="color:red" /></td>
+																			<td><p:message for="fname" style="color:red" /></td>
 																		</tr>
 																		<tr>
 																			<td><h:outputText value="Vorname:" /></td>
 																			<td><h:inputText id="lname"
-																					value="#{user.lastName}" required="true"
-																					requiredMessage="Bitte geben sie ihr Vorname ein" /></td>
-																			<td><h:message for="lname" style="color:red" /></td>
+																					value="#{userRegister.familyName}" required="true"
+																					requiredMessage="Bitte geben sie ihr Vorname ein" />
+																			</td>
+																			<td><p:message for="lname" style="color:red" /></td>
+
 																		</tr>
 																		<tr>
 																			<td><h:outputText value="Strasse:" /></td>
 																			<td><h:inputText id="street"
-																					value="#{user.street}" required="true"
+																					value="#{userRegister.strasse}" required="true"
 																					requiredMessage="Bitte geben sie ihr Strasse ein" /></td>
-																			<td><h:message for="street" style="color:red" /></td>
-																			<td></td>
+																			<td><p:message for="street" style="color:red" /></td>
+
 																			<td><h:outputText value="HausNummer:" /></td>
-																			<td></td>
+
 																			<td><h:inputText id="hausNr"
-																					value="#{user.hausNr}" required="true"
+																					value="#{userRegister.hausNummer}" required="true"
 																					requiredMessage="Bitte geben sie die Hausnummer ein" /></td>
+																			<td><p:message for="hausNr" style="color:red" /></td>
 																		</tr>
 																		<tr>
 																			<td><h:outputText value="PLZ:" /></td>
-																			<td><h:inputText id="plz" value="#{user.plz}"
-																					required="true"
+																			<td><h:inputText id="plz"
+																					value="#{userRegister.plz}" required="true"
 																					requiredMessage="Bitte geben sie die PLZ ein:" /></td>
-																			<td><h:message for="plz" style="color:red" /></td>
+																			<td><p:message for="plz" style="color:red" /></td>
 																		</tr>
 																		<tr>
 
 																			<td><h:outputText value="E-mail:" /></td>
 																			<td><h:inputText id="email"
-																					value="#{user.email}" required="true"
+																					value="#{userRegister.email}" required="true"
 																					requiredMessage="Bitte geben sie ihre E-mail Addresse ein:" /></td>
-																			<td><h:message for="email" style="color:red" /></td>
+																			<td><p:message for="email" style="color:red" /></td>
+																		</tr>
+																		<tr>
+																			<td><h:outputText value="username:" /></td>
+																			<td><h:inputText id="usrn"
+																					value="#{userRegister.username}" required="true"
+																					requiredMessage="Bitte geben sie ihr Benutzername ein:" /></td>
+																			<td><p:message for="usrn" style="color:red" /></td>
 																		</tr>
 																		<tr>
 																			<td><h:outputText value="Passwort:" /></td>
 																			<td><h:inputSecret id="psw"
-																					value="#{user.password}" required="true"
+																					value="#{userRegister.password}" required="true"
 																					requiredMessage="Bitte geben sie ihr Passwort ein:" /></td>
-																			<td><h:message for="psw" style="color:red" /></td>
+																			<td><p:message for="psw" style="color:red" /></td>
 																		</tr>
 																		<tr>
 																			<td />
-																			<td><h:commandButton value="Register"
-																					action="#{user.add}" /></td>
+																			<td><p:commandButton value="Register"
+																					update="registerForm"
+																					action="#{userRegister.register}" /></td>
 																		</tr>
 																		<tr>
-																			<td><h:outputLink value="home.xhtml">Home</h:outputLink></td>
+
 																		</tr>
 																	</table>
+																	<div>
+																		<a href="#kategorien" data-toggle="tab"
+																			class="list-group-item"> zur Anmeldung</a>
+																	</div>
 																</h:form>
 															</div>
 														</div>
@@ -620,6 +638,74 @@
 
 															<div class="portlet-body"></div>
 
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="auctiontab">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<br /> <br />
+															<hr />
+															<div class="form-group">
+																<h:form id="auctionform">
+																	<div class="form-group">
+																		<h:outputText value="Kategorie: " />
+																		<b:inputText/>
+																		<f:selectItem value="#{userNewAuction.categories}" />
+
+																		<h:message for="auctkategorie" style="color:red" />
+																	</div>
+																	<table
+																		class="table table-bordered table-striped table-hover">
+																		<tr>
+																			<td><h:outputText value="Name:" /></td>
+																			<td><h:inputText id="auctname"
+																					value="#{userNewAuction.name}" required="true"
+																					requiredMessage="Bitte geben Name des Artikels  ein" /></td>
+																			<td><p:message for="auctname" style="color:red" /></td>
+																		</tr>
+																		<tr>
+																			<td><h:outputText value="Beschreibung:" /></td>
+																			<td><h:inputTextarea id="auctbeschr" rows="10"
+																					cols="100" value="#{userNewAuction.description}"
+																					required="true"
+																					requiredMessage="Bitte geben sie ihr Vorname ein" />
+																			</td>
+																			<td><p:message for="auctbeschr"
+																					style="color:red" /></td>
+
+																		</tr>
+																		<tr>
+																			<td><h:outputText value="Preis:" /></td>
+																			<td><h:inputText id="auctpreis"
+																					value="#{userNewAuction.initialPrice}"
+																					required="true"
+																					requiredMessage="Bitte geben sie den Preis ein" /></td>
+																			<td><p:message for="auctpreis" style="color:red" /></td>
+																		</tr>
+																		<tr>
+
+																			<td><h:outputText value="Foto:" /></td>
+																			<td><p:fileUpload value="#{userNewAuction.file}"
+																					mode="simple" skinSimple="true" /></td>
+																		</tr>
+
+
+																		<tr>
+																			<td />
+																			<td><p:commandButton value="Submit"
+																					update="auctionform"
+																					action="#{userNewAuction.createAuction}" /></td>
+																		</tr>
+																		<tr>
+																			<td><h:outputLink value="home.xhtml">Home</h:outputLink></td>
+																		</tr>
+																	</table>
+																</h:form>
+															</div>
 														</div>
 														<div class="col-lg-6"></div>
 													</div>
@@ -856,7 +942,9 @@
 						alert("Anmeldung misslungen!!");
 						}
 					else{
-						$('#myLoginButton a[href="#loggeduser"]').tab('show');
+						
+						$('a[href="#loggeduser"]').tab('show');
+						alert("Anmeldung war erfolgreich!!");
 					
 					}
 			}

@@ -34,6 +34,7 @@
 	<classpathentry kind="var" path="M2_REPO/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/omnifaces/omnifaces/2.6.7/omnifaces-2.6.7.jar"/>
+	<classpathentry kind="var" path="M2_REPO/net/bootsfaces/bootsfaces/1.2.0/bootsfaces-1.2.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>

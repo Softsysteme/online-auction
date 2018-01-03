@@ -12,12 +12,16 @@ main\java\primefaces\PrimeFaces$Dialog.class
 main\java\auction\MusikInstrumente.class
 main\java\auction\SportAndFreizeit.class
 main\java\auction\FotoAndOptik.class
+main\java\managedBeans\UserRegister.class
 main\java\auction\User.class
+main\java\managedBeans\UserNewAuction.class
 main\java\auction\Bid.class
+main\java\managedBeans\Messages$MessagesView.class
 main\java\primefaces\PrimeFaces.class
 main\java\auction\Item.class
 main\java\messagedrivenBeans\NotificationBean.class
 main\java\auction\Category.class
+main\java\managedBeans\Messages.class
 main\java\primefaces\PrimeFaces$Ajax.class
 main\java\auction\Wohnen.class
 main\java\auction\HaendyAndKommunication.class
