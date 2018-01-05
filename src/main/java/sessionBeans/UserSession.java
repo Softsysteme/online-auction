@@ -23,6 +23,15 @@ public class UserSession {
 	private static final String SELECT_PER_USERNAME = "from User u where  u.username=:username AND u.password=:password";
 	private static final String PARAM_EMAIL = "email";
 	private static final String PARAM_USERNAME = "username";
+	private User currentUser;
+
+	public User getCurrentuser() {
+		return currentUser;
+	}
+
+	public void setCurrentuser(User user) {
+		this.currentUser = user;
+	}
 
 	// Entity Manager injection
 	@PersistenceContext(unitName = "online_auktion_PU")
@@ -66,6 +75,7 @@ public class UserSession {
 		} catch (Exception e) {
 			throw new DAOException(e);
 		}
+		this.setCurrentuser(user);
 		return user;
 	}
 
@@ -103,6 +113,21 @@ public class UserSession {
 		return result;
 	}
 
+	public Category searchCategory(String name) {
+		Category category = null;
+		Query request = em.createQuery("from Category c where  c.name=:cname");
+		request.setParameter("cname", name);
+		try {
+			category = (Category) request.getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		} catch (Exception e) {
+			throw new DAOException(e);
+		}
+
+		return category;
+	}
+
 	public void placeBid(Bid bid) {
 		try {
 			em.persist(bid);
@@ -112,7 +137,7 @@ public class UserSession {
 
 	}
 
-	public void postNewAuction( Item item) {
+	public void postNewAuction(Item item) {
 		try {
 			em.persist(item);
 		} catch (Exception e) {

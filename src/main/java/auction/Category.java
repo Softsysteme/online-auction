@@ -21,12 +21,8 @@ public class Category {
 	protected int category_id;
 
 	protected String name;
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "Category_category_id")
-	protected Category superCategory;
-	
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "Item_item_id")
+
+	@OneToMany(mappedBy = "category")
 	protected List<Item> items;
 
 	public List<Item> getItems() {
@@ -54,16 +50,6 @@ public class Category {
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
-
-	}
-
-	public Category getSuperCategory() {
-		return superCategory;
-	}
-
-	public void setSuperCategory(Category newSuperCategory) {
-		Category oldSuperCategory = superCategory;
-		superCategory = newSuperCategory;
 
 	}
 

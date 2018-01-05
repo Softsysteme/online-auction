@@ -24,12 +24,12 @@ public class SoldItem implements Serializable {
 	protected double price;
 
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "User_user_id")
+	@JoinColumn(name = "user_id", nullable=false)
 	protected User buyer;
 
 	@Id
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "Item_item_id")
+	@JoinColumn(name = "item_id", nullable=false)
 	protected Item item;
 
 	public String getName() {

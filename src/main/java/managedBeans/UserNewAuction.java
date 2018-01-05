@@ -1,11 +1,11 @@
 package main.java.managedBeans;
 
 import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.Time;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 import javax.ejb.EJB;
@@ -41,6 +41,15 @@ public class UserNewAuction {
 	protected double initialPrice;
 	protected String name;
 	protected String photo;
+	private int auctionDuration;
+
+	public int getAuctionDuration() {
+		return auctionDuration;
+	}
+
+	public void setAuctionDuration(int auctionDuration) {
+		this.auctionDuration = auctionDuration;
+	}
 
 	protected String description;
 
@@ -60,9 +69,9 @@ public class UserNewAuction {
 
 	private String categoryTags = "Audio und Video, Bekleidung, Sport und Freizeit";
 
-	private static String[] categories = { "Audio and Video", "Bekleidung", "Bücher", "Fahrzeuge", "Foto und Optik",
-			"Gesundheit", "Händy und Telefon", "Lebensmittel", "Musikinstrumente", "Schmuck", "Spielwaren",
-			"Sport und Freizeit", "Werkzeuge", "Wohnene", "Sonstiges" };
+	private static String[] categories = { "AudioAndVideo", "Bekleidung", "Buecher", "Fahrzeuge", "FotoAndOptik",
+			"Gesundheit", "HaendyAndTelefon", "Lebensmittel", "Musikinstrumente", "Schmuck", "Spielwaren",
+			"SportAndFreizeit", "Werkzeuge", "Wohnene", "Sonstiges" };
 
 	public String getCategoriesCSV() {
 		StringBuilder b = new StringBuilder();
@@ -177,31 +186,61 @@ public class UserNewAuction {
 
 	public void createAuction() {
 		Class<?> clazz = null;
-		Object item = null;
+
 		try {
-			clazz = Class.forName("main.java.sessionBeans" + "muster");
+			System.out.println("main.java.auction." + this.getCategoryName());
+			clazz = Class.forName("main.java.auction." + this.getCategoryName());
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		Constructor<?> ctor = null;
 		try {
-			item = clazz.newInstance();
-
+			ctor = clazz.getDeclaredConstructor();
+		} catch (NoSuchMethodException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Item item = null;
+		try {
+			item = (Item) ctor.newInstance();
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
-		((Item) item).setName(this.getName());
+		Item itemcasted = (Item) item;
+		itemcasted.setName(this.getName());
 		// ((Item) item).setCategory(this.category);
-		((Item) item).setDescription(this.getDescription());
-		((Item) item).setInitialPrice(this.getInitialPrice());
-		((Item) item).setPhoto(this.getPhoto());
+		itemcasted.setDescription(this.getDescription());
+		itemcasted.setInitialPrice(this.getInitialPrice());
+		itemcasted.setPhoto(this.getPhoto());
+		itemcasted.setAuctionDuration(this.getAuctionDuration());
+		itemcasted.setOwner(this.getUserSession().getCurrentuser());
+		itemcasted.setCategory(this.userSession.searchCategory(this.getCategoryName()));
+		userSession.postNewAuction(itemcasted);
+	}
 
-		userSession.postNewAuction((Item) item);
+	public List<String> completeText(String query) {
+		List<String> results = new ArrayList<String>();
+		for (int i = 0; i < categories.length; i++) {
+			if (categories[i].contains(query))
+				results.add(categories[i]);
+		}
+
+		return results;
 	}
 
 	public void validateFile(FacesContext ctx, UIComponent comp, Object value) {

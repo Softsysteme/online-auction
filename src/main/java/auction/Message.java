@@ -21,12 +21,12 @@ public class Message {
 
 	protected String text;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	//@JoinColumn(name = "User_user_id")
+	@ManyToOne
+	@JoinColumn(name = "receiver", nullable = false)
 	protected User from;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "User_user_id")
+	@ManyToOne
+	@JoinColumn(name = "sender", nullable = false)
 	protected User to;
 
 	public int getMessage_id() {

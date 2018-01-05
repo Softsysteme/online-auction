@@ -5,8 +5,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	 xmlns:b="http://bootsfaces.net/ui"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui">
 
 <h:body>
 	<ui:composition template="templates/auction/common-layout.xhtml">
@@ -155,6 +154,7 @@
 																	value="#{userLogin.password}" required="true" />
 																<div>
 																	<p:commandButton id="myLogInButton" value="Anmelden"
+																		styleClass="ui-priority-primary"
 																		actionListener="#{userLogin.login}"
 																		oncomplete="myLoginFunction(xhr, status, args)">
 
@@ -523,7 +523,8 @@
 																		</tr>
 																		<tr>
 																			<td />
-																			<td><h:commandButton value="Abschicken"
+																			<td><p:commandButton value="Abschicken"
+																					styleClass="ui-priority-primary"
 																					action="#{user.add}" /></td>
 																		</tr>
 																		<tr>
@@ -611,6 +612,7 @@
 																		<tr>
 																			<td />
 																			<td><p:commandButton value="Register"
+																					styleClass="ui-priority-primary"
 																					update="registerForm"
 																					action="#{userRegister.register}" /></td>
 																		</tr>
@@ -651,13 +653,6 @@
 															<hr />
 															<div class="form-group">
 																<h:form id="auctionform">
-																	<div class="form-group">
-																		<h:outputText value="Kategorie: " />
-																		<b:inputText/>
-																		<f:selectItem value="#{userNewAuction.categories}" />
-
-																		<h:message for="auctkategorie" style="color:red" />
-																	</div>
 																	<table
 																		class="table table-bordered table-striped table-hover">
 																		<tr>
@@ -679,24 +674,59 @@
 
 																		</tr>
 																		<tr>
-																			<td><h:outputText value="Preis:" /></td>
+																			<td><h:outputText value="Startpreis:" /></td>
 																			<td><h:inputText id="auctpreis"
 																					value="#{userNewAuction.initialPrice}"
 																					required="true"
 																					requiredMessage="Bitte geben sie den Preis ein" /></td>
 																			<td><p:message for="auctpreis" style="color:red" /></td>
+
+																		</tr>
+																		<tr>
+																			<td><h:outputText
+																					value="Angebotsdauer (in Tage):" /></td>
+																			<td><h:inputText id="auctdauer"
+																					value="#{userNewAuction.auctionDuration}"
+																					required="true"
+																					requiredMessage="wie lange soll die Auktion dauern?" /></td>
+																			<td><p:message for="auctdauer" style="color:red" /></td>
+
+																		</tr>
+																		<tr>
+																			<td><h:outputText value="Kategorie: " /></td>
+																			<td><b:form horizontal="true">
+																					<b:inputText value="userNewAuction.categoryName"
+																						id="auctkategorie"
+																						placeholder="geben sie bitte eine Kategorie an"
+																						typeahead="true"
+																						typeahead-values="Audio and Video,Bekleidung,Bücher,Fahrzeuge,Foto und Optik,Gesundheit,Händy und Telefon,Lebensmittel,Musikinstrumente,Schmuck,Spielwaren,Sport und Freizeit,Werkzeuge,Wohnene,Sonstiges" />
+
+																				</b:form></td>
+
+																			<!-- 																				<tr><b:form horizontal="true"> -->
+																			<!-- 																					<b:inputText tags="true" -->
+																			<!-- 																						value="#{userNewAuction.categoryTags}" -->
+																			<!-- 																						placeholder="Drücken sie Enter um eine Kategorie auszuwählen" -->
+																			<!-- 																						label="Wählen sie bitte eine Kategory aus?" /> -->
+																			<!-- 																				</b:form></td></tr> -->
+
+																			<td><h:message for="auctkategorie"
+																					style="color:red" /></td>
 																		</tr>
 																		<tr>
 
 																			<td><h:outputText value="Foto:" /></td>
-																			<td><p:fileUpload value="#{userNewAuction.file}"
-																					mode="simple" skinSimple="true" /></td>
+																			<td><p:growl id="messages" showDetail="true" />
+
+																				<p:fileUpload value="#{UserNewAuction.file}"
+																					mode="simple" skinSimple="true" /> <p:commandButton
+																					value="Upload" ajax="false"
+																					actionListener="#{userNewAuction.upload}" disabled="true"/></td>
 																		</tr>
-
-
 																		<tr>
 																			<td />
 																			<td><p:commandButton value="Submit"
+																					styleClass="ui-priority-primary"
 																					update="auctionform"
 																					action="#{userNewAuction.createAuction}" /></td>
 																		</tr>

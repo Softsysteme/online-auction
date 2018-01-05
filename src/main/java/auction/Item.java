@@ -29,14 +29,24 @@ public abstract class Item {
 
 	protected Time startTime;
 	protected Time endTime;
+	
+	protected int auctionDuration;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "Category_category_id")
+	@ManyToOne
+	@JoinColumn(name = "category_id", nullable=false)
 	protected Category category;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "User_user_id")
+	@ManyToOne
+	@JoinColumn(name = "user_id", nullable=false)
 	protected User owner;
+
+	public int getAuctionDuration() {
+		return auctionDuration;
+	}
+
+	public void setAuctionDuration(int auctionDuration) {
+		this.auctionDuration = auctionDuration;
+	}
 
 	public User getOwner() {
 		return owner;

@@ -30,6 +30,40 @@ public class User {
 	protected String plz;
 
 	protected String familyName;
+
+	@OneToMany(mappedBy = "owner")
+	protected List<Item> ownedItems;
+	
+	@OneToMany(mappedBy = "to")
+	protected List<Message> sentMessages;
+	
+	@OneToMany(mappedBy = "from")
+	protected List<Message> receivedMessages;
+
+	public List<Item> getOwnedItems() {
+		return ownedItems;
+	}
+
+	public List<Message> getSentMessages() {
+		return sentMessages;
+	}
+
+	public void setSentMessages(List<Message> sentMessages) {
+		this.sentMessages = sentMessages;
+	}
+
+	public List<Message> getReceivedMessages() {
+		return receivedMessages;
+	}
+
+	public void setReceivedMessages(List<Message> receivedMessages) {
+		this.receivedMessages = receivedMessages;
+	}
+
+	public void setOwnedItems(List<Item> ownedItems) {
+		this.ownedItems = ownedItems;
+	}
+
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub

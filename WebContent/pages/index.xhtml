@@ -154,6 +154,7 @@
 																	value="#{userLogin.password}" required="true" />
 																<div>
 																	<p:commandButton id="myLogInButton" value="Anmelden"
+																		styleClass="ui-priority-primary"
 																		actionListener="#{userLogin.login}"
 																		oncomplete="myLoginFunction(xhr, status, args)">
 
@@ -522,7 +523,8 @@
 																		</tr>
 																		<tr>
 																			<td />
-																			<td><h:commandButton value="Abschicken"
+																			<td><p:commandButton value="Abschicken"
+																					styleClass="ui-priority-primary"
 																					action="#{user.add}" /></td>
 																		</tr>
 																		<tr>
@@ -610,6 +612,7 @@
 																		<tr>
 																			<td />
 																			<td><p:commandButton value="Register"
+																					styleClass="ui-priority-primary"
 																					update="registerForm"
 																					action="#{userRegister.register}" /></td>
 																		</tr>
@@ -671,7 +674,7 @@
 
 																		</tr>
 																		<tr>
-																			<td><h:outputText value="Preis:" /></td>
+																			<td><h:outputText value="Startpreis:" /></td>
 																			<td><h:inputText id="auctpreis"
 																					value="#{userNewAuction.initialPrice}"
 																					required="true"
@@ -680,14 +683,30 @@
 
 																		</tr>
 																		<tr>
-																			<td><h:outputText value="Kategorie: " /></td>
-																			<td><b:form horizontal="true">
-																					<b:inputText value="userNewAuction.categoryName"
-																						placeholder="geben sie bitte eine Kategorie an"
-																						typeahead="true"
-																						typeahead-values="Audio and Video,Bekleidung,Bücher,Fahrzeuge,Foto und Optik,Gesundheit,Händy und Telefon,Lebensmittel,Musikinstrumente,Schmuck,Spielwaren,Sport und Freizeit,Werkzeuge,Wohnene,Sonstiges" />
+																			<td><h:outputText
+																					value="Angebotsdauer (in Tage):" /></td>
+																			<td><h:inputText id="auctdauer"
+																					value="#{userNewAuction.auctionDuration}"
+																					required="true"
+																					requiredMessage="wie lange soll die Auktion dauern?" /></td>
+																			<td><p:message for="auctdauer" style="color:red" /></td>
 
-																				</b:form></td>
+																		</tr>
+																		<tr>
+																			<td><h:outputText value="Kategorie: " /></td>
+																			<td><h:form horizontal="true">
+																					<p:autoComplete id="autcompl"
+																						value="#{userNewAuction.categoryName}"
+																						completeMethod="#{userNewAuction.completeText}" />
+
+																				</h:form></td>
+
+																			<!-- 																				<tr><b:form horizontal="true"> -->
+																			<!-- 																					<b:inputText tags="true" -->
+																			<!-- 																						value="#{userNewAuction.categoryTags}" -->
+																			<!-- 																						placeholder="Drücken sie Enter um eine Kategorie auszuwählen" -->
+																			<!-- 																						label="Wählen sie bitte eine Kategory aus?" /> -->
+																			<!-- 																				</b:form></td></tr> -->
 
 																			<td><h:message for="auctkategorie"
 																					style="color:red" /></td>
@@ -695,14 +714,18 @@
 																		<tr>
 
 																			<td><h:outputText value="Foto:" /></td>
-																			<td><p:fileUpload value="#{userNewAuction.file}"
-																					mode="simple" skinSimple="true" /></td>
+																			<td><p:growl id="messages" showDetail="true" />
+
+																				<p:fileUpload value="#{UserNewAuction.file}"
+																					mode="simple" skinSimple="true" /> <p:commandButton
+																					value="Upload" ajax="false"
+																					actionListener="#{userNewAuction.upload}"
+																					disabled="true" /></td>
 																		</tr>
-
-
 																		<tr>
 																			<td />
 																			<td><p:commandButton value="Submit"
+																					styleClass="ui-priority-primary"
 																					update="auctionform"
 																					action="#{userNewAuction.createAuction}" /></td>
 																		</tr>
