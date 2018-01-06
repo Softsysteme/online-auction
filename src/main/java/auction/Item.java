@@ -21,7 +21,7 @@ public abstract class Item {
 	protected int item_id;
 	protected double initialPrice;
 	protected String name;
-	protected String photo;
+	protected byte[] photo;
 
 	protected String description;
 
@@ -83,11 +83,11 @@ public abstract class Item {
 
 	}
 
-	public String getPhoto() {
+	public byte[] getPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(String newPhoto) {
+	public void setPhoto(byte[] newPhoto) {
 		photo = newPhoto;
 
 	}

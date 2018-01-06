@@ -1,12 +1,11 @@
 package main.java.managedBeans;
 
-import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
 
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
@@ -15,9 +14,9 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
 
+import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 
-import main.java.auction.Category;
 import main.java.auction.Item;
 import main.java.auction.User;
 import main.java.sessionBeans.UserSession;
@@ -40,7 +39,7 @@ public class UserNewAuction {
 
 	protected double initialPrice;
 	protected String name;
-	protected String photo;
+	protected byte[] photo;
 	private int auctionDuration;
 
 	public int getAuctionDuration() {
@@ -120,11 +119,11 @@ public class UserNewAuction {
 		this.name = name;
 	}
 
-	public String getPhoto() {
+	public byte[] getPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(String photo) {
+	public void setPhoto(byte[] photo) {
 		this.photo = photo;
 	}
 
@@ -171,23 +170,22 @@ public class UserNewAuction {
 	protected User owner;
 
 	@SuppressWarnings("resource")
-	public void upload() {
+	public void upload(FileUploadEvent event) {
 		if (file != null) {
-			FacesMessage message = new FacesMessage("Succesful", file.getFileName() + " is uploaded.");
+			FacesMessage message = new FacesMessage("Succesful", event.getFile().getFileName() + " is uploaded.");
 			FacesContext.getCurrentInstance().addMessage(null, message);
-			try {
-				this.setPhoto(new Scanner(file.getInputstream()).useDelimiter("\\A").next());
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			file=event.getFile();
+			System.out.println(file+"weeeeeeeeeeeeeeee");
+			this.setPhoto(file.getContents());
 		}
 	}
 
 	public void createAuction() {
+	
 		Class<?> clazz = null;
 
 		try {
+			System.out.println(file+"weeeeeeeeeeeeeeee");
 			System.out.println("main.java.auction." + this.getCategoryName());
 			clazz = Class.forName("main.java.auction." + this.getCategoryName());
 		} catch (ClassNotFoundException e) {

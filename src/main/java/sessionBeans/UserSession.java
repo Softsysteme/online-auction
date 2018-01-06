@@ -84,22 +84,23 @@ public class UserSession {
 
 	}
 
-	// search for a Item
+	// search for a Item "from User u where  u.username=:username AND u.password=:password"
+	@SuppressWarnings("unchecked")
 	public List<Item> searachItem(String searchWord) {
 		List<Item> result = new ArrayList<Item>();
-		Query request = em.createQuery("SELECT i FROM Item WHERE i.name=:searchWord");
+		Query request = em.createQuery("from Item i WHERE i.name=:searchWord");
 		request.setParameter("searchWord", searchWord);
 		try {
-			result.add((Item) request.getResultList());
+			result.addAll(request.getResultList());
 		} catch (NoResultException e) {
 			Query request2 = em
-					.createQuery("SELECT i FROM Item WHERE i.owner IN (SELECT u FROM User WHERE u.stadt=:searchWord");
+					.createQuery("from Item i WHERE i.owner IN (from User u WHERE u.stadt=:searchWord");
 			request2.setParameter("searchWord", searchWord);
 			try {
 				result.add((Item) request.getResultList());
 			} catch (NoResultException e2) {
 				Query request3 = em.createQuery(
-						"SELECT i FROM Item WHERE i.category  IN (SELECT c FROM Category WHERE u.name=:searchWord");
+						"from Item i  where i.category  IN (from Category c where c.name=:searchWord");
 				request3.setParameter("searchWord", searchWord);
 				try {
 					result.add((Item) request.getResultList());

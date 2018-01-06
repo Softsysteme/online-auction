@@ -714,13 +714,15 @@
 																		<tr>
 
 																			<td><h:outputText value="Foto:" /></td>
-																			<td><p:growl id="messages" showDetail="true" />
+																			<td><h:form enctype="multipart/form-data">
+																					<p:fileUpload
+																						fileUploadListener="#{userNewAuction.upload}"
+																						mode="advanced" update="messages" auto="true"
+																						sizeLimit="100000"
+																						allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
 
-																				<p:fileUpload value="#{UserNewAuction.file}"
-																					mode="simple" skinSimple="true" /> <p:commandButton
-																					value="Upload" ajax="false"
-																					actionListener="#{userNewAuction.upload}"
-																					disabled="true" /></td>
+																					<p:growl id="messages" showDetail="true" />
+																				</h:form></td>
 																		</tr>
 																		<tr>
 																			<td />
@@ -748,7 +750,73 @@
 															<br /> <br />
 															<hr />
 
-															<div class="portlet-body"></div>
+															<div class="portlet-body">
+
+																<h:form id="formav">
+																	<p:repeat value="#{userSelectCategory.av}" var="it">
+																		<h:panelGrid columns="3" style="width:100%"
+																			columnClasses="logo,detail">
+																			<p:commandLink update=":formav:avDetail"
+																				oncomplete="PF('avDialog').show()">
+																				<f:setPropertyActionListener value="#{it}"
+																					target="#{userSelectCategory.selectedItem}" />
+																				<p:graphicImage
+																					name="demo/images/car/#{car.brand}-big.gif" />
+																			</p:commandLink>
+
+																			<p:outputPanel>
+																				<h:panelGrid columns="2" cellpadding="5">
+																					<h:outputText value="AuktionId:" />
+																					<h:outputText value="#{it.item_id}"
+																						style="font-weight: bold" />
+
+																					<h:outputText value="Name:" />
+																					<h:outputText value="#{it.name}"
+																						style="font-weight: bold" />
+
+																					<h:outputText value="Aktuellerpreis:" />
+																					<h:outputText value="#{it.initialPrice}"
+																						style="font-weight: bold" />
+																					<h:outputText value="Restzeit:" />
+																					<h:outputText value="#{it.endTime}"
+																						style="font-weight: bold" />
+																				</h:panelGrid>
+																			</p:outputPanel>
+																		</h:panelGrid>
+																		<hr />
+																	</p:repeat>
+
+																	<p:dialog header="Car Info" widgetVar="avDialog"
+																		modal="true" showEffect="blind" hideEffect="explode"
+																		resizable="false">
+																		<p:outputPanel id="avDetail"
+																			style="text-align:center;">
+																			<p:panelGrid columns="2"
+																				rendered="#{not empty userSelectCategory.selectedItem}"
+																				columnClasses="label,value">
+																				<f:facet name="header">
+																					<p:graphicImage
+																						name="#{not empty userSelectCategory.selectedItem.photo}-big.gif" />
+																				</f:facet>
+
+																				<h:outputText value="AuktionId:" />
+																				<h:outputText value="#{it.item_id}"
+																					style="font-weight: bold" />
+
+																				<h:outputText value="Name:" />
+																				<h:outputText value="#{it.name}"
+																					style="font-weight: bold" />
+
+																				<h:outputText value="Aktuellerpreis:" />
+																				<h:outputText value="#{it.initialPrice}"
+																					style="font-weight: bold" />
+																				<h:outputText value="Restzeit:" />
+																				<h:outputText value="#{it.endTime}" />
+																			</p:panelGrid>
+																		</p:outputPanel>
+																	</p:dialog>
+																</h:form>
+															</div>
 
 														</div>
 														<div class="col-lg-6"></div>
@@ -786,7 +854,74 @@
 														<div class="col-lg-6">
 															<br /> <br />
 															<hr />
-															<div class="portlet-body"></div>
+															<div class="portlet-body">
+
+																<h:form id="formfz">
+
+																	<p:repeat value="#{userSelectCategory.fahrzeuge}"
+																		var="frz">
+																		<h:panelGrid columns="3" style="width:100%"
+																			columnClasses="logo,detail">
+																			<p:commandLink update=":formfz:fzDetail"
+																				oncomplete="PF('fzDialog').show()">
+																				<f:setPropertyActionListener value="#{frz}"
+																					target="#{userSelectCategory.selectedItem}" />
+																				<p:graphicImage name="olumbayo.gif" />
+																			</p:commandLink>
+
+																			<p:outputPanel>
+																				<h:panelGrid columns="2" cellpadding="5">
+																					<h:outputText value="AuktionId:" />
+																					<h:outputText value="#{frz.item_id}"
+																						style="font-weight: bold" />
+
+																					<h:outputText value="Name:" />
+																					<h:outputText value="#{frz.name}"
+																						style="font-weight: bold" />
+
+																					<h:outputText value="Aktuellerpreis:" />
+																					<h:outputText value="#{frz.initialPrice}"
+																						style="font-weight: bold" />
+																					<h:outputText value="Restzeit:" />
+																					<h:outputText value="#{frz.endTime}"
+																						style="font-weight: bold" />
+																				</h:panelGrid>
+																			</p:outputPanel>
+																		</h:panelGrid>
+																		<hr />
+																	</p:repeat>
+
+																	<p:dialog header="FzInfo" widgetVar="fzDialog"
+																		modal="true" showEffect="blind" hideEffect="explode"
+																		resizable="false">
+																		<p:outputPanel id="fzDetail"
+																			style="text-align:center;">
+																			<p:panelGrid columns="2"
+																				rendered="#{not empty userSelectCategory.selectedItem}"
+																				columnClasses="label,value">
+																				<f:facet name="header">
+																					<p:graphicImage
+																						name="#{not empty userSelectCategory.selectedItem.photo}-big.gif" />
+																				</f:facet>
+
+																				<h:outputText value="AuktionId:" />
+																				<h:outputText value="#{frz.item_id}"
+																					style="font-weight: bold" />
+
+																				<h:outputText value="Name:" />
+																				<h:outputText value="#{frz.name}"
+																					style="font-weight: bold" />
+
+																				<h:outputText value="Aktuellerpreis:" />
+																				<h:outputText value="#{frz.initialPrice}"
+																					style="font-weight: bold" />
+																				<h:outputText value="Restzeit:" />
+																				<h:outputText value="#{frz.endTime}" />
+																			</p:panelGrid>
+																		</p:outputPanel>
+																	</p:dialog>
+																</h:form>
+															</div>
 														</div>
 														<div class="col-lg-6"></div>
 													</div>
