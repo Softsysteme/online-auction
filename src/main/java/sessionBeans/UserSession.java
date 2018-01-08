@@ -84,7 +84,8 @@ public class UserSession {
 
 	}
 
-	// search for a Item "from User u where  u.username=:username AND u.password=:password"
+	// search for a Item "from User u where u.username=:username AND
+	// u.password=:password"
 	@SuppressWarnings("unchecked")
 	public List<Item> searachItem(String searchWord) {
 		List<Item> result = new ArrayList<Item>();
@@ -93,17 +94,16 @@ public class UserSession {
 		try {
 			result.addAll(request.getResultList());
 		} catch (NoResultException e) {
-			Query request2 = em
-					.createQuery("from Item i WHERE i.owner IN (from User u WHERE u.stadt=:searchWord");
+			Query request2 = em.createQuery("from Item i WHERE i.owner IN (from User u WHERE u.stadt=:searchWord");
 			request2.setParameter("searchWord", searchWord);
 			try {
 				result.add((Item) request.getResultList());
 			} catch (NoResultException e2) {
-				Query request3 = em.createQuery(
-						"from Item i  where i.category  IN (from Category c where c.name=:searchWord");
+				Query request3 = em
+						.createQuery("from Item i  where i.category  IN (from Category c where c.name=:searchWord");
 				request3.setParameter("searchWord", searchWord);
 				try {
-					result.add((Item) request.getResultList());
+					result.addAll(request.getResultList());
 				} catch (NoResultException e3) {
 					return null;
 				}
@@ -112,6 +112,23 @@ public class UserSession {
 			throw new DAOException(e);
 		}
 		return result;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Item> getItemsOfCategory(String category) {
+
+		List<Item> result = new ArrayList<Item>();
+		Query request3 = em.createQuery("from Item i  where i.category  IN (from Category c where c.name=:searchWord)");
+		request3.setParameter("searchWord", category);
+		try {
+			result.addAll(request3.getResultList());
+		} catch (NoResultException e3) {
+			return null;
+		} catch (Exception e) {
+			throw new DAOException(e);
+		}
+		return result;
+
 	}
 
 	public Category searchCategory(String name) {

@@ -695,7 +695,7 @@
 																		<tr>
 																			<td><h:outputText value="Kategorie: " /></td>
 																			<td><h:form horizontal="true">
-																					<p:autoComplete id="autcompl"
+																					<p:autoComplete id="autcompl" dropdown="true"
 																						value="#{userNewAuction.categoryName}"
 																						completeMethod="#{userNewAuction.completeText}" />
 
@@ -857,18 +857,11 @@
 															<div class="portlet-body">
 
 																<h:form id="formfz">
-
 																	<p:repeat value="#{userSelectCategory.fahrzeuge}"
 																		var="frz">
 																		<h:panelGrid columns="3" style="width:100%"
 																			columnClasses="logo,detail">
-																			<p:commandLink update=":formfz:fzDetail"
-																				oncomplete="PF('fzDialog').show()">
-																				<f:setPropertyActionListener value="#{frz}"
-																					target="#{userSelectCategory.selectedItem}" />
-																				<p:graphicImage name="olumbayo.gif" />
-																			</p:commandLink>
-
+																			<h2>hier soll ein Bild kommen</h2>
 																			<p:outputPanel>
 																				<h:panelGrid columns="2" cellpadding="5">
 																					<h:outputText value="AuktionId:" />
@@ -886,40 +879,67 @@
 																					<h:outputText value="#{frz.endTime}"
 																						style="font-weight: bold" />
 																				</h:panelGrid>
+
 																			</p:outputPanel>
+																			<p:commandLink update=":formfz:fzDetail">
+																				<f:setPropertyActionListener value="#{frz}"
+																					target="#{userSelectCategory.selectedItem}" />
+																				<li class="active"><button
+																						class="btn btn-green" data-toggle="modal"
+																						data-target="#fzdlg">Details</button></li>
+																			</p:commandLink>
 																		</h:panelGrid>
 																		<hr />
 																	</p:repeat>
 
-																	<p:dialog header="FzInfo" widgetVar="fzDialog"
-																		modal="true" showEffect="blind" hideEffect="explode"
-																		resizable="false">
-																		<p:outputPanel id="fzDetail"
-																			style="text-align:center;">
-																			<p:panelGrid columns="2"
-																				rendered="#{not empty userSelectCategory.selectedItem}"
-																				columnClasses="label,value">
-																				<f:facet name="header">
-																					<p:graphicImage
-																						name="#{not empty userSelectCategory.selectedItem.photo}-big.gif" />
-																				</f:facet>
+																	<div class="modal modal-flex fade" id="fzdlg"
+																		tabindex="-1" role="dialog"
+																		aria-labelledby="flexModalLabel" aria-hidden="true"
+																		resizable="true" height="800">
+																		<div class="modal-dialog">
+																			<div class="modal-content" height="1000">
+																				<div class="modal-header">
+																					<button type="button" class="close"
+																						data-dismiss="modal" aria-hidden="true">&times;</button>
+																					<h4 class="modal-title" id="flexModalLabel">Auktion
+																						Details</h4>
+																				</div>
+																				<p:outputPanel id="fzDetail"
+																					style="text-align:center;">
+																					<p:panelGrid columns="8"
+																						rendered="#{not empty userSelectCategory.selectedItem}"
+																						columnClasses="label,value">
+																						<f:facet name="header">
+																							<h:commandLink>
+																								<h:graphicImage
+																									value="./src/main/resources/img/flex-admin-logo.png" />
+																							</h:commandLink>
 
-																				<h:outputText value="AuktionId:" />
-																				<h:outputText value="#{frz.item_id}"
-																					style="font-weight: bold" />
+																						</f:facet>
 
-																				<h:outputText value="Name:" />
-																				<h:outputText value="#{frz.name}"
-																					style="font-weight: bold" />
+																						<h:outputText value="AuktionId:" />
+																						<h:outputText
+																							value="#{userSelectCategory.selectedItem.item_id}"
+																							style="font-weight: bold" />
 
-																				<h:outputText value="Aktuellerpreis:" />
-																				<h:outputText value="#{frz.initialPrice}"
-																					style="font-weight: bold" />
-																				<h:outputText value="Restzeit:" />
-																				<h:outputText value="#{frz.endTime}" />
-																			</p:panelGrid>
-																		</p:outputPanel>
-																	</p:dialog>
+																						<h:outputText value="Name:" />
+																						<h:outputText
+																							value="#{userSelectCategory.selectedItem.name}"
+																							style="font-weight: bold" />
+
+																						<h:outputText value="Aktuellerpreis:" />
+																						<h:outputText
+																							value="#{userSelectCategory.selectedItem.initialPrice}"
+																							style="font-weight: bold" />
+																						<h:outputText value="Restzeit:" />
+																						<h:outputText
+																							value="#{userSelectCategory.selectedItem.endTime}" />
+																					</p:panelGrid>
+																				</p:outputPanel>
+																			</div>
+																		</div>
+
+																	</div>
 																</h:form>
 															</div>
 														</div>
@@ -1097,6 +1117,16 @@
 			<!-- end MAIN PAGE CONTENT -->
 			<script
 				src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+
+			<script>$('#fzdlg').on('show.bs.modal', function () {
+			$(this).find('.modal-body').css({
+ 					width:'auto', //probably not needed
+					height:'auto', //probably not needed 
+ 					'max-height':'100%'
+			});
+			})</script>
+
 			<script>
 				function myLoginFunction(xhr, status,args) {
 					
