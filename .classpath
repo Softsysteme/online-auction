@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+<<<<<<< HEAD
 	<classpathentry kind="src" output="target/classes" path="src">
+=======
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+>>>>>>> ebe74c6e3ba630e2ded46b4be010eb48142e332e
 		<attributes>
 			<attribute name="optional" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
+<<<<<<< HEAD
 	</classpathentry>
 	<classpathentry kind="var" path="M2_REPO/com/sun/faces/jsf-impl/2.2.15/jsf-impl-2.2.15.jar"/>
 	<classpathentry kind="var" path="M2_REPO/com/sun/faces/jsf-api/2.2.0-m05/jsf-api-2.2.0-m05.jar"/>
@@ -25,16 +30,47 @@
 			<accessrule kind="accessible" pattern="org/eclipse/emf/ecore/xml/type/util/*"/>
 			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
 		</accessrules>
+=======
+>>>>>>> ebe74c6e3ba630e2ded46b4be010eb48142e332e
 	</classpathentry>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry excluding="**/*.java" including="**/*.java" kind="src" output="target/test-classes" path="src/test/resources"/>
+	<classpathentry excluding="main/resources/" including="**/*.java" kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="var" path="M2_REPO/javax/ejb/ejb-api/3.0/ejb-api-3.0.jar"/>
+	<classpathentry kind="var" path="M2_REPO/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2.jar" sourcepath="M2_REPO/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/javax/transaction/jta/1.1/jta-1.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+<<<<<<< HEAD
+=======
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="var" path="M2_REPO/com/sun/faces/jsf-impl/2.2.15/jsf-impl-2.2.15.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/sun/faces/jsf-api/2.2.0-m05/jsf-api-2.2.0-m05.jar"/>
+	<classpathentry kind="var" path="M2_REPO/mysql/mysql-connector-java/5.1.9/mysql-connector-java-5.1.9.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/primefaces/themes/cupertino/1.0.10/cupertino-1.0.10.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/primefaces/themes/all-themes/1.0.10/all-themes-1.0.10.jar"/>
+	<classpathentry kind="var" path="M2_REPO/jboss/jboss-annotations-ejb3/4.2.3.GA/jboss-annotations-ejb3-4.2.3.GA.jar"/>
+	<classpathentry kind="var" path="M2_REPO/junit/junit/3.8.1/junit-3.8.1.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/primefaces/extensions/primefaces-extensions/6.1.1/primefaces-extensions-6.1.1.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/primefaces/primefaces/6.1/primefaces-6.1.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/omnifaces/omnifaces/2.6.7/omnifaces-2.6.7.jar"/>
+	<classpathentry kind="var" path="M2_REPO/net/bootsfaces/bootsfaces/1.2.0/bootsfaces-1.2.0.jar"/>
+	<classpathentry kind="var" path="M2_REPO/commons-io/commons-io/1.3.2/commons-io-1.3.2.jar"/>
+	<classpathentry kind="var" path="M2_REPO/commons-fileupload/commons-fileupload/1.2.2/commons-fileupload-1.2.2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
+>>>>>>> ebe74c6e3ba630e2ded46b4be010eb48142e332e
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>

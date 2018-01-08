@@ -5,9 +5,13 @@ package main.java.auction;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -26,6 +30,45 @@ public class User {
 	protected String plz;
 
 	protected String familyName;
+
+	@OneToMany(mappedBy = "owner")
+	protected List<Item> ownedItems;
+	
+	@OneToMany(mappedBy = "to")
+	protected List<Message> sentMessages;
+	
+	@OneToMany(mappedBy = "from")
+	protected List<Message> receivedMessages;
+
+	public List<Item> getOwnedItems() {
+		return ownedItems;
+	}
+
+	public List<Message> getSentMessages() {
+		return sentMessages;
+	}
+
+	public void setSentMessages(List<Message> sentMessages) {
+		this.sentMessages = sentMessages;
+	}
+
+	public List<Message> getReceivedMessages() {
+		return receivedMessages;
+	}
+
+	public void setReceivedMessages(List<Message> receivedMessages) {
+		this.receivedMessages = receivedMessages;
+	}
+
+	public void setOwnedItems(List<Item> ownedItems) {
+		this.ownedItems = ownedItems;
+	}
+
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	protected String firstName;
 
 	protected String email;
@@ -77,7 +120,7 @@ public class User {
 	}
 
 	public void setUser_id(int newUser_id) {
-		int oldUser_id = user_id;
+
 		user_id = newUser_id;
 
 	}
@@ -87,7 +130,6 @@ public class User {
 	}
 
 	public void setUsername(String newUsername) {
-		String oldUsername = username;
 		username = newUsername;
 
 	}
@@ -97,7 +139,7 @@ public class User {
 	}
 
 	public void setPassword(String newPassword) {
-		String oldPassword = password;
+
 		password = newPassword;
 
 	}
@@ -107,7 +149,7 @@ public class User {
 	}
 
 	public void setAddress(String newAddress) {
-		String oldAddress = strasse;
+
 		strasse = newAddress;
 
 	}
@@ -117,7 +159,7 @@ public class User {
 	}
 
 	public void setFamilyName(String newFamilyName) {
-		String oldFamilyName = familyName;
+
 		familyName = newFamilyName;
 
 	}
@@ -127,7 +169,7 @@ public class User {
 	}
 
 	public void setAdministrator(boolean newAdministrator) {
-		boolean oldAdministrator = administrator;
+
 		administrator = newAdministrator;
 	}
 
@@ -136,60 +178,8 @@ public class User {
 	}
 
 	public void setEmail(String newEmail) {
-		String oldEmail = email;
+
 		email = newEmail;
-
-	}
-
-	public void placeBid() {
-		// TODO: implement this method
-
-	}
-
-	public List<?> getItemsOnAuction() {
-		return null;
-		// TODO: implement this method
-
-	}
-
-	public void postNewAuction(Item newItem) {
-		// TODO: implement this method
-
-	}
-
-	public void deleteItem(int item_id) {
-		// TODO: implement this method
-
-	}
-
-	public void deleteUser(int user_id) {
-		// TODO: implement this method
-
-	}
-
-	public void createCategory() {
-		// TODO: implement this method
-
-	}
-
-	public void deleteCategory() {
-		// TODO: implement this method
-
-	}
-
-	public void sendMessage(Message message) {
-		// TODO: implement this method
-
-	}
-
-	public List<?> getSoldItems() {
-		return null;
-		// TODO: implement this method
-
-	}
-
-	public List<?> getBuyedItems() {
-		return null;
 
 	}
 

@@ -5,7 +5,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui">
 
 <h:body>
 	<ui:composition template="templates/auction/common-layout.xhtml">
@@ -141,31 +141,159 @@
 														<div class="form-group">
 															<label>Benutzer Anmeldung:</label>
 														</div>
+
+														<h:form id="anmeldungform">
+															<div class="form-group">
+																<label>Benutzername:</label>
+																<h:inputText type="text" class="form-control"
+																	value="#{userLogin.username}" required="true" />
+															</div>
+															<div class="form-group">
+																<label>Passwort:</label>
+																<p:password type="text" class="form-control"
+																	value="#{userLogin.password}" required="true" />
+																<div>
+																	<p:commandButton id="myLogInButton" value="Anmelden"
+																		styleClass="ui-priority-primary"
+																		actionListener="#{userLogin.login}"
+																		oncomplete="myLoginFunction(xhr, status, args)">
+
+																	</p:commandButton>
+																</div>
+																<hr />
+																<div class="list-group">
+																	<a href="#" class="list-group-item">Haben sie ihr
+																		Passwort vergessen?</a>
+																	<hr />
+																	<a href="#register" class="list-group-item"
+																		data-toggle="tab">Hier können sie sich neu
+																		registrieren</a>
+																	<hr />
+
+																</div>
+
+															</div>
+														</h:form>
+														<h3>Contact Details</h3>
+														<p>
+															<i class="fa fa-globe fa-muted fa-fw"></i> <a href="#">http://www.website.com</a>
+														</p>
+														<p>
+															<i class="fa fa-phone fa-muted fa-fw"></i>
+															017673987837389
+														</p>
+														<p>
+															<i class="fa fa-building-o fa-muted fa-fw"></i> Märkische
+															Str. 3. <br />44222, Dortmund
+														</p>
+														<p>
+															<i class="fa fa-envelope-o fa-muted fa-fw"></i> <a
+																href="#">max.mustermann@website.de</a>
+														</p>
+														<ul class="list-inline">
+															<li><a class="facebook-link" href="#"><i
+																	class="fa fa-facebook-square fa-2x"></i></a></li>
+															<li><a class="twitter-link" href="#"><i
+																	class="fa fa-twitter-square fa-2x"></i></a></li>
+															<li><a class="linkedin-link" href="#"><i
+																	class="fa fa-linkedin-square fa-2x"></i></a></li>
+															<li><a class="google-plus-link" href="#"><i
+																	class="fa fa-google-plus-square fa-2x"></i></a></li>
+														</ul>
+													</div>
+
+												</div>
+
+											</div>
+
+											<div class="tab-pane fade in" id="loggeduser">
+
+												<div class="row">
+													<div class="col-lg-2 col-md-3">
+														<!-- 														<img class="img-responsive img-profile" -->
+														<!-- 															src="img/profile-full.jpg" alt="" /> -->
+
+														<div class="list-group">
+															<a href="#audio-video" data-toggle="tab"
+																class="list-group-item">Audio und Video</a> <a
+																href="#bekleidung" data-toggle="tab"
+																class="list-group-item">Bekleidung</a> <a
+																href="#buecher" data-toggle="tab"
+																class="list-group-item">Bücher</a> <a href="#fahrzeuge"
+																data-toggle="tab" class="list-group-item">Fahrzeuge</a>
+															<a href="#foto-optik" data-toggle="tab"
+																class="list-group-item">Foto und Optik</a> <a
+																href="#gesundheit" data-toggle="tab"
+																class="list-group-item">Gesundheit</a> <a
+																href="#haendy-telefon" data-toggle="tab"
+																class="list-group-item">Händy und Telefon</a> <a
+																href="#lebensmittel" data-toggle="tab"
+																class="list-group-item">Lebensmittel</a> <a
+																href="#musikinstrumente" data-toggle="tab"
+																class="list-group-item">Musikinstrumente</a> <a
+																href="#schmuck" data-toggle="tab"
+																class="list-group-item">Schmuck</a> <a
+																href="#spielwaren" data-toggle="tab"
+																class="list-group-item">Spielwaren</a> <a
+																href="#sport-freizeit" data-toggle="tab"
+																class="list-group-item">Sport und Freizeit</a> <a
+																href="#werkzeuge" data-toggle="tab"
+																class="list-group-item">Werkzeuge</a> <a href="#wohnen"
+																data-toggle="tab" class="list-group-item">Wohnen</a> <a
+																href="#sonstiges" data-toggle="tab"
+																class="list-group-item">Sonstiges</a> <a href="#alle"
+																data-toggle="tab" class="list-group-item">Übersicht
+																aller Auktionen</a>
+
+														</div>
+													</div>
+													<div class="col-lg-7 col-md-5">
+														<h3>Meine gestellte Auktionen</h3>
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+															elit. Nunc placerat diam quis nisl vestibulum dignissim.
+															In hac habitasse platea dictumst. Interdum et malesuada
+															fames ac ante ipsum primis in faucibus. Pellentesque
+															habitant morbi tristique senectus et netus et malesuada
+															fames ac turpis egestas. Etiam placerat nunc ut tellus
+															tristique, non posuere neque iaculis.</p>
+
+														<br /> <br />
+														<hr />
+														<h3>Meine gewonene Auktionen</h3>
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+															elit. Nunc placerat diam quis nisl vestibulum dignissim.
+															In hac habitasse platea dictumst. Interdum et malesuada
+															fames ac ante ipsum primis in faucibus. Pellentesque
+															habitant morbi tristique senectus et netus et malesuada
+															fames ac turpis egestas. Etiam placerat nunc ut tellus
+															tristique, non posuere neque iaculis.</p>
+
+														<h3>Meine beobachtete Auktionen</h3>
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+															elit. Nunc placerat diam quis nisl vestibulum dignissim.
+															In hac habitasse platea dictumst. Interdum et malesuada
+															fames ac ante ipsum primis in faucibus. Pellentesque
+															habitant morbi tristique senectus et netus et malesuada
+															fames ac turpis egestas. Etiam placerat nunc ut tellus
+															tristique, non posuere neque iaculis.</p>
+													</div>
+													<div class="col-lg-2 col-md-3">
 														<div class="form-group">
-															<label>Benutzername:</label> <input type="text"
-																class="form-control" value="" />
+															<label>Eingeloggt:</label>
+														</div>
+														<div class="form-group">
+															<label>Benutzername:</label>
+															<h:outputText type="text" class="form-control"
+																value="#{userLogin.username}" required="true" />
+
+															<br /> <a href="#loggeduser" class="list-group-item"
+																data-toggle="tab">Mein Bieter Konto</a> <br /> <a
+																href="#auctiontab" class="list-group-item"
+																data-toggle="tab">Neu Auktion plazieren:</a>
+
+
 														</div>
 
-														<div class="form-group">
-															<label>Passwort:</label> <input type="text"
-																class="form-control" value="" />
-															<div>
-																<button type="submit" class="btn btn-default">
-																	Anmelden</button>
-															</div>
-															<hr />
-															<div class="list-group">
-																<a href="#" class="list-group-item">Haben sie ihr
-																	Passwort vergessen?</a>
-																<hr />
-																<a href="#register" class="list-group-item"
-																	data-toggle="tab">Hier können sie sich neu
-																	registrieren</a>
-																<hr />
-
-															</div>
-
-														</div>
 														<h3>Contact Details</h3>
 														<p>
 															<i class="fa fa-globe fa-muted fa-fw"></i> <a href="#">http://www.website.com</a>
@@ -395,7 +523,8 @@
 																		</tr>
 																		<tr>
 																			<td />
-																			<td><h:commandButton value="Abschicken"
+																			<td><p:commandButton value="Abschicken"
+																					styleClass="ui-priority-primary"
 																					action="#{user.add}" /></td>
 																		</tr>
 																		<tr>
@@ -419,66 +548,82 @@
 															<hr />
 															<div class="form-group">
 																<h:form id="registerForm">
-																	<table
+																	<table id="tblregister"
 																		class="table table-bordered table-striped table-hover">
 																		<tr>
 																			<td><h:outputText value="Nachname:" /></td>
 																			<td><h:inputText id="fname"
-																					value="#{user.firstName}" required="true"
+																					value="#{userRegister.firstName}" required="true"
 																					requiredMessage="Bitte geben sie ihr Nachname ein" /></td>
-																			<td><h:message for="fname" style="color:red" /></td>
+																			<td><p:message for="fname" style="color:red" /></td>
 																		</tr>
 																		<tr>
 																			<td><h:outputText value="Vorname:" /></td>
 																			<td><h:inputText id="lname"
-																					value="#{user.lastName}" required="true"
-																					requiredMessage="Bitte geben sie ihr Vorname ein" /></td>
-																			<td><h:message for="lname" style="color:red" /></td>
+																					value="#{userRegister.familyName}" required="true"
+																					requiredMessage="Bitte geben sie ihr Vorname ein" />
+																			</td>
+																			<td><p:message for="lname" style="color:red" /></td>
+
 																		</tr>
 																		<tr>
 																			<td><h:outputText value="Strasse:" /></td>
 																			<td><h:inputText id="street"
-																					value="#{user.street}" required="true"
+																					value="#{userRegister.strasse}" required="true"
 																					requiredMessage="Bitte geben sie ihr Strasse ein" /></td>
-																			<td><h:message for="street" style="color:red" /></td>
-																			<td></td>
+																			<td><p:message for="street" style="color:red" /></td>
+
 																			<td><h:outputText value="HausNummer:" /></td>
-																			<td></td>
+
 																			<td><h:inputText id="hausNr"
-																					value="#{user.hausNr}" required="true"
+																					value="#{userRegister.hausNummer}" required="true"
 																					requiredMessage="Bitte geben sie die Hausnummer ein" /></td>
+																			<td><p:message for="hausNr" style="color:red" /></td>
 																		</tr>
 																		<tr>
 																			<td><h:outputText value="PLZ:" /></td>
-																			<td><h:inputText id="plz" value="#{user.plz}"
-																					required="true"
+																			<td><h:inputText id="plz"
+																					value="#{userRegister.plz}" required="true"
 																					requiredMessage="Bitte geben sie die PLZ ein:" /></td>
-																			<td><h:message for="plz" style="color:red" /></td>
+																			<td><p:message for="plz" style="color:red" /></td>
 																		</tr>
 																		<tr>
 
 																			<td><h:outputText value="E-mail:" /></td>
 																			<td><h:inputText id="email"
-																					value="#{user.email}" required="true"
+																					value="#{userRegister.email}" required="true"
 																					requiredMessage="Bitte geben sie ihre E-mail Addresse ein:" /></td>
-																			<td><h:message for="email" style="color:red" /></td>
+																			<td><p:message for="email" style="color:red" /></td>
+																		</tr>
+																		<tr>
+																			<td><h:outputText value="username:" /></td>
+																			<td><h:inputText id="usrn"
+																					value="#{userRegister.username}" required="true"
+																					requiredMessage="Bitte geben sie ihr Benutzername ein:" /></td>
+																			<td><p:message for="usrn" style="color:red" /></td>
 																		</tr>
 																		<tr>
 																			<td><h:outputText value="Passwort:" /></td>
 																			<td><h:inputSecret id="psw"
-																					value="#{user.password}" required="true"
+																					value="#{userRegister.password}" required="true"
 																					requiredMessage="Bitte geben sie ihr Passwort ein:" /></td>
-																			<td><h:message for="psw" style="color:red" /></td>
+																			<td><p:message for="psw" style="color:red" /></td>
 																		</tr>
 																		<tr>
 																			<td />
-																			<td><h:commandButton value="Register"
-																					action="#{user.add}" /></td>
+																			<td><p:commandButton value="Register"
+																					styleClass="ui-priority-primary"
+																					update="registerForm"
+																					action="#{userRegister.register}" /></td>
 																		</tr>
 																		<tr>
-																			<td><h:outputLink value="home.xhtml">Home</h:outputLink></td>
+
 																		</tr>
 																	</table>
+																	<div>
+																		<a href="#kategorien" data-toggle="tab"
+																			class="list-group-item"> zur Anmeldung</a>
+																	</div>
 																</h:form>
 															</div>
 														</div>
@@ -500,6 +645,103 @@
 													</div>
 												</div>
 											</div>
+											<div class="tab-pane fade" id="auctiontab">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<br /> <br />
+															<hr />
+															<div class="form-group">
+																<h:form id="auctionform">
+																	<table
+																		class="table table-bordered table-striped table-hover">
+																		<tr>
+																			<td><h:outputText value="Name:" /></td>
+																			<td><h:inputText id="auctname"
+																					value="#{userNewAuction.name}" required="true"
+																					requiredMessage="Bitte geben Name des Artikels  ein" /></td>
+																			<td><p:message for="auctname" style="color:red" /></td>
+																		</tr>
+																		<tr>
+																			<td><h:outputText value="Beschreibung:" /></td>
+																			<td><h:inputTextarea id="auctbeschr" rows="10"
+																					cols="100" value="#{userNewAuction.description}"
+																					required="true"
+																					requiredMessage="Bitte geben sie ihr Vorname ein" />
+																			</td>
+																			<td><p:message for="auctbeschr"
+																					style="color:red" /></td>
+
+																		</tr>
+																		<tr>
+																			<td><h:outputText value="Startpreis:" /></td>
+																			<td><h:inputText id="auctpreis"
+																					value="#{userNewAuction.initialPrice}"
+																					required="true"
+																					requiredMessage="Bitte geben sie den Preis ein" /></td>
+																			<td><p:message for="auctpreis" style="color:red" /></td>
+
+																		</tr>
+																		<tr>
+																			<td><h:outputText
+																					value="Angebotsdauer (in Tage):" /></td>
+																			<td><h:inputText id="auctdauer"
+																					value="#{userNewAuction.auctionDuration}"
+																					required="true"
+																					requiredMessage="wie lange soll die Auktion dauern?" /></td>
+																			<td><p:message for="auctdauer" style="color:red" /></td>
+
+																		</tr>
+																		<tr>
+																			<td><h:outputText value="Kategorie: " /></td>
+																			<td><h:form horizontal="true">
+																					<p:autoComplete id="autcompl" dropdown="true"
+																						value="#{userNewAuction.categoryName}"
+																						completeMethod="#{userNewAuction.completeText}" />
+
+																				</h:form></td>
+
+																			<!-- 																				<tr><b:form horizontal="true"> -->
+																			<!-- 																					<b:inputText tags="true" -->
+																			<!-- 																						value="#{userNewAuction.categoryTags}" -->
+																			<!-- 																						placeholder="Drücken sie Enter um eine Kategorie auszuwählen" -->
+																			<!-- 																						label="Wählen sie bitte eine Kategory aus?" /> -->
+																			<!-- 																				</b:form></td></tr> -->
+
+																			<td><h:message for="auctkategorie"
+																					style="color:red" /></td>
+																		</tr>
+																		<tr>
+
+																			<td><h:outputText value="Foto:" /></td>
+																			<td><h:form enctype="multipart/form-data">
+																					<p:fileUpload
+																						fileUploadListener="#{userNewAuction.upload}"
+																						mode="advanced" update="messages" auto="true"
+																						sizeLimit="100000"
+																						allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+
+																					<p:growl id="messages" showDetail="true" />
+																				</h:form></td>
+																		</tr>
+																		<tr>
+																			<td />
+																			<td><p:commandButton value="Submit"
+																					styleClass="ui-priority-primary"
+																					update="auctionform"
+																					action="#{userNewAuction.createAuction}" /></td>
+																		</tr>
+																		<tr>
+																			<td><h:outputLink value="home.xhtml">Home</h:outputLink></td>
+																		</tr>
+																	</table>
+																</h:form>
+															</div>
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
 
 											<div class="tab-pane fade" id="audio-video">
 												<div class="row">
@@ -508,7 +750,73 @@
 															<br /> <br />
 															<hr />
 
-															<div class="portlet-body"></div>
+															<div class="portlet-body">
+
+																<h:form id="formav">
+																	<p:repeat value="#{userSelectCategory.av}" var="it">
+																		<h:panelGrid columns="3" style="width:100%"
+																			columnClasses="logo,detail">
+																			<p:commandLink update=":formav:avDetail"
+																				oncomplete="PF('avDialog').show()">
+																				<f:setPropertyActionListener value="#{it}"
+																					target="#{userSelectCategory.selectedItem}" />
+																				<p:graphicImage
+																					name="demo/images/car/#{car.brand}-big.gif" />
+																			</p:commandLink>
+
+																			<p:outputPanel>
+																				<h:panelGrid columns="2" cellpadding="5">
+																					<h:outputText value="AuktionId:" />
+																					<h:outputText value="#{it.item_id}"
+																						style="font-weight: bold" />
+
+																					<h:outputText value="Name:" />
+																					<h:outputText value="#{it.name}"
+																						style="font-weight: bold" />
+
+																					<h:outputText value="Aktuellerpreis:" />
+																					<h:outputText value="#{it.initialPrice}"
+																						style="font-weight: bold" />
+																					<h:outputText value="Restzeit:" />
+																					<h:outputText value="#{it.endTime}"
+																						style="font-weight: bold" />
+																				</h:panelGrid>
+																			</p:outputPanel>
+																		</h:panelGrid>
+																		<hr />
+																	</p:repeat>
+
+																	<p:dialog header="Car Info" widgetVar="avDialog"
+																		modal="true" showEffect="blind" hideEffect="explode"
+																		resizable="false">
+																		<p:outputPanel id="avDetail"
+																			style="text-align:center;">
+																			<p:panelGrid columns="2"
+																				rendered="#{not empty userSelectCategory.selectedItem}"
+																				columnClasses="label,value">
+																				<f:facet name="header">
+																					<p:graphicImage
+																						name="#{not empty userSelectCategory.selectedItem.photo}-big.gif" />
+																				</f:facet>
+
+																				<h:outputText value="AuktionId:" />
+																				<h:outputText value="#{it.item_id}"
+																					style="font-weight: bold" />
+
+																				<h:outputText value="Name:" />
+																				<h:outputText value="#{it.name}"
+																					style="font-weight: bold" />
+
+																				<h:outputText value="Aktuellerpreis:" />
+																				<h:outputText value="#{it.initialPrice}"
+																					style="font-weight: bold" />
+																				<h:outputText value="Restzeit:" />
+																				<h:outputText value="#{it.endTime}" />
+																			</p:panelGrid>
+																		</p:outputPanel>
+																	</p:dialog>
+																</h:form>
+															</div>
 
 														</div>
 														<div class="col-lg-6"></div>
@@ -546,7 +854,94 @@
 														<div class="col-lg-6">
 															<br /> <br />
 															<hr />
-															<div class="portlet-body"></div>
+															<div class="portlet-body">
+
+																<h:form id="formfz">
+																	<p:repeat value="#{userSelectCategory.fahrzeuge}"
+																		var="frz">
+																		<h:panelGrid columns="3" style="width:100%"
+																			columnClasses="logo,detail">
+																			<h2>hier soll ein Bild kommen</h2>
+																			<p:outputPanel>
+																				<h:panelGrid columns="2" cellpadding="5">
+																					<h:outputText value="AuktionId:" />
+																					<h:outputText value="#{frz.item_id}"
+																						style="font-weight: bold" />
+
+																					<h:outputText value="Name:" />
+																					<h:outputText value="#{frz.name}"
+																						style="font-weight: bold" />
+
+																					<h:outputText value="Aktuellerpreis:" />
+																					<h:outputText value="#{frz.initialPrice}"
+																						style="font-weight: bold" />
+																					<h:outputText value="Restzeit:" />
+																					<h:outputText value="#{frz.endTime}"
+																						style="font-weight: bold" />
+																				</h:panelGrid>
+
+																			</p:outputPanel>
+																			<p:commandLink update=":formfz:fzDetail">
+																				<f:setPropertyActionListener value="#{frz}"
+																					target="#{userSelectCategory.selectedItem}" />
+																				<li class="active"><button
+																						class="btn btn-green" data-toggle="modal"
+																						data-target="#fzdlg">Details</button></li>
+																			</p:commandLink>
+																		</h:panelGrid>
+																		<hr />
+																	</p:repeat>
+
+																	<div class="modal modal-flex fade" id="fzdlg"
+																		tabindex="-1" role="dialog"
+																		aria-labelledby="flexModalLabel" aria-hidden="true"
+																		resizable="true" height="800">
+																		<div class="modal-dialog">
+																			<div class="modal-content" height="1000">
+																				<div class="modal-header">
+																					<button type="button" class="close"
+																						data-dismiss="modal" aria-hidden="true">&times;</button>
+																					<h4 class="modal-title" id="flexModalLabel">Auktion
+																						Details</h4>
+																				</div>
+																				<p:outputPanel id="fzDetail"
+																					style="text-align:center;">
+																					<p:panelGrid columns="8"
+																						rendered="#{not empty userSelectCategory.selectedItem}"
+																						columnClasses="label,value">
+																						<f:facet name="header">
+																							<h:commandLink>
+																								<h:graphicImage
+																									value="./src/main/resources/img/flex-admin-logo.png" />
+																							</h:commandLink>
+
+																						</f:facet>
+
+																						<h:outputText value="AuktionId:" />
+																						<h:outputText
+																							value="#{userSelectCategory.selectedItem.item_id}"
+																							style="font-weight: bold" />
+
+																						<h:outputText value="Name:" />
+																						<h:outputText
+																							value="#{userSelectCategory.selectedItem.name}"
+																							style="font-weight: bold" />
+
+																						<h:outputText value="Aktuellerpreis:" />
+																						<h:outputText
+																							value="#{userSelectCategory.selectedItem.initialPrice}"
+																							style="font-weight: bold" />
+																						<h:outputText value="Restzeit:" />
+																						<h:outputText
+																							value="#{userSelectCategory.selectedItem.endTime}" />
+																					</p:panelGrid>
+																				</p:outputPanel>
+																			</div>
+																		</div>
+
+																	</div>
+																</h:form>
+															</div>
 														</div>
 														<div class="col-lg-6"></div>
 													</div>
@@ -722,6 +1117,46 @@
 			<!-- end MAIN PAGE CONTENT -->
 			<script
 				src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+
+			<script>$('#fzdlg').on('show.bs.modal', function () {
+			$(this).find('.modal-body').css({
+ 					width:'auto', //probably not needed
+					height:'auto', //probably not needed 
+ 					'max-height':'100%'
+			});
+			})</script>
+
+			<script>
+				function myLoginFunction(xhr, status,args) {
+					
+					if(args.validationFailed ||!args.loggedIn){
+						alert(args.loggedIn);
+						alert(args.validationFailed);
+						alert("Anmeldung misslungen!!");
+						}
+					else{
+						
+						$('a[href="#loggeduser"]').tab('show');
+						alert("Anmeldung war erfolgreich!!");
+					
+					}
+			}
+			</script>
+
+			<script>
+			function eventFire(el, etype){
+				  if (el.fireEvent) {
+				    el.fireEvent('on' + etype);
+				  } else {
+				    var evObj = document.createEvent('Events');
+				    evObj.initEvent(etype, true, false);
+				    el.dispatchEvent(evObj);
+				  }
+				}
+
+
+			</script>
 		</ui:define>
 	</ui:composition>
 

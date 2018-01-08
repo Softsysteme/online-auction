@@ -1,39 +1,66 @@
 
 package main.java.auction;
 
+import java.sql.Time;
 import java.util.Date;
-import java.util.Locale.Category;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
 
 @Entity
 public abstract class Item {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected int item_id;
 	protected double initialPrice;
 	protected String name;
-	protected String photo;
+	protected byte[] photo;
 
 	protected String description;
 
 	protected boolean available;
 
-	protected Date startTime;
-	protected Date endTime;
+	protected Time startTime;
+	protected Time endTime;
+	
+	protected int auctionDuration;
 
+	@ManyToOne
+	@JoinColumn(name = "category_id", nullable=false)
 	protected Category category;
+
+	@ManyToOne
+	@JoinColumn(name = "user_id", nullable=false)
+	protected User owner;
+
+	public int getAuctionDuration() {
+		return auctionDuration;
+	}
+
+	public void setAuctionDuration(int auctionDuration) {
+		this.auctionDuration = auctionDuration;
+	}
+
+	public User getOwner() {
+		return owner;
+	}
+
+	public void setOwner(User owner) {
+		this.owner = owner;
+	}
 
 	public int getItem_id() {
 		return item_id;
 	}
 
 	public void setItem_id(int newItem_id) {
-		int oldItem_id = item_id;
 		item_id = newItem_id;
 
 	}
@@ -43,7 +70,6 @@ public abstract class Item {
 	}
 
 	public void setInitialPrice(double newInitialPrice) {
-		double oldInitialPrice = initialPrice;
 		initialPrice = newInitialPrice;
 
 	}
@@ -53,17 +79,15 @@ public abstract class Item {
 	}
 
 	public void setName(String newName) {
-		String oldName = name;
 		name = newName;
 
 	}
 
-	public String getPhoto() {
+	public byte[] getPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(String newPhoto) {
-		String oldPhoto = photo;
+	public void setPhoto(byte[] newPhoto) {
 		photo = newPhoto;
 
 	}
@@ -73,7 +97,6 @@ public abstract class Item {
 	}
 
 	public void setDescription(String newDescription) {
-		String oldDescription = description;
 		description = newDescription;
 	}
 
@@ -82,7 +105,6 @@ public abstract class Item {
 	}
 
 	public void setAvailable(boolean newAvailable) {
-		boolean oldAvailable = available;
 		available = newAvailable;
 
 	}
@@ -91,8 +113,7 @@ public abstract class Item {
 		return startTime;
 	}
 
-	public void setStartTime(Date newStartTime) {
-		Date oldStartTime = startTime;
+	public void setStartTime(Time newStartTime) {
 		startTime = newStartTime;
 
 	}
@@ -101,8 +122,7 @@ public abstract class Item {
 		return endTime;
 	}
 
-	public void setEndTime(Date newEndTime) {
-		Date oldEndTime = endTime;
+	public void setEndTime(Time newEndTime) {
 		endTime = newEndTime;
 
 	}
