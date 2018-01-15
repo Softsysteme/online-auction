@@ -1,0 +1,41 @@
+HTTP-LB:
+  image: hrw_auction:latest
+  publish_all: true
+  mem_min: 50m
+  host: host1
+  plugins:
+    - !plugin
+      id: uazUi
+      restart: true
+      lifecycle: on_create, post_scale_out:AppServer, post_scale_in:AppServer
+      arguments:
+        # Use container_private_ip if you're using Docker networking
+        - BalancerMembers=BalancerMember http://{{AppServer | container_private_ip}}:8080
+        # Use container_hostname if you're using Weave networking
+        #- BalancerMembers=BalancerMember http://{{AppServer | container_hostname}}:8080
+AppServer:
+  image: jboss/wildfly:latest
+  mem_min: 600m
+  host: host1
+  cluster_size: 1
+  environment:
+    - database_driverClassName=com.mysql.jdbc.Driver
+    - database_url=jdbc:mysql://{{MySQL|container_hostname}}:3306/{{MySQL|MYSQL_DATABASE}}
+    - database_username={{MySQL|MYSQL_USER}}
+    - database_password={{MySQL|MYSQL_ROOT_PASSWORD}}
+  plugins:
+    - !plugin
+      id: oncXN
+      restart: true
+      arguments:
+        - file_url=https://github.com/dchqinc/dchq-docker-java-example/raw/master/dbconnect.war
+        - dir=/opt/jboss/wildfly/standalone/deployments/ROOT.war
+        - delete_dir=/opt/jboss/wildfly/standalone/deployments/ROOT
+MySQL:
+  image: mysql:latest
+  host: host1
+  mem_min: 400m
+  environment:
+    - MYSQL_USER=root
+    - MYSQL_DATABASE=hrw_auction
+    - MYSQL_ROOT_PASSWORD=Ioriyagami88
