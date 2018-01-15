@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.password">Ioriyagami88</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hrw_auction</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<prop key="hibernate.hbm2ddl.auto">create</prop>
+		<property name="show_sql">true</property>
+		<mapping class="src.main.java.auction.User"></mapping>
+		<mapping class="src.main.java.auction.AudioAndVideo"></mapping>
+		<mapping class="src.main.java.auction.Bekleidung"></mapping>
+		<mapping class="src.main.java.auction.Buecher"></mapping>
+		<mapping class="src.main.java.auction.Category"></mapping>
+		<mapping class="src.main.java.auction.Computer"></mapping>
+		<mapping class="src.main.java.auction.Fahrzeuge"></mapping>
+		<mapping class="src.main.java.auction.FotoAndOptik"></mapping>
+		<mapping class="src.main.java.auction.Gesundheit"></mapping>
+		<mapping class="src.main.java.auction.HaendyAndKommunikation"></mapping>
+		<mapping class="src.main.java.auction.Item"></mapping>
+		<mapping class="src.main.java.auction.LebensmittelAndGetraenke"></mapping>
+		<mapping class="src.main.java.auction.MusikInstrumente"></mapping>
+		<mapping class="src.main.java.auction.Schmuck"></mapping>
+		<mapping class="src.main.java.auction.SoldItem"></mapping>
+		<mapping class="src.main.java.auction.Sonstiges"></mapping>
+		<mapping class="src.main.java.auction.SpielWaren"></mapping>
+		<mapping class="src.main.java.auction.SportAndFreizeit"></mapping>
+		<mapping class="src.main.java.auction.WerkzeugeAndMaschinen"></mapping>
+		<mapping class="src.main.java.auction.Wohnen"></mapping>
+	</session-factory>
+</hibernate-configuration>

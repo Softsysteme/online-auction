@@ -1,0 +1,911 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+	<ui:composition template="templates/auction/common-layout.xhtml">
+		<ui:define name="content">
+			<!-- begin MAIN PAGE CONTENT -->
+			<div class="page-wrapper">
+				<div>
+					<div class="page-content">
+						<!-- begin PAGE TITLE ROW -->
+						<div>
+							<div class="col-lg-12">
+								<div class="page-title">
+									<h4>
+										Online Auktion für Studenten der <small>hrw</small>
+									</h4>
+									<ol class="breadcrumb">
+										<li class="active"><div>
+												<i class="fa fa-home"></i> <a href="#kategorien"
+													data-toggle="tab"> Home </a>
+											</div></li>
+										<li><div></div></li>
+										<li class="active"><div>
+												<a href="#register" data-toggle="tab"> Registrieren</a>
+											</div></li>
+										<li><div></div></li>
+										<li class="active"><div>
+												<a href="#versteigerungsbedingungen" data-toggle="tab">
+													Versteigerungsbedingungen</a>
+											</div></li>
+										<li><div></div></li>
+										<li class="active"><div>
+												<a href="#datenschutz" data-toggle="tab">
+													Datenschutzbestimmungen</a>
+											</div></li>
+										<li><div></div></li>
+										<li class="active"><div>
+												<a href="#kontakt" data-toggle="tab"> Kontakt</a>
+											</div></li>
+										<li><div></div></li>
+										<li class="active"><div>
+												<a href="#impressum" data-toggle="tab"> Impressum</a>
+											</div></li>
+										<li><div></div></li>
+									</ol>
+								</div>
+							</div>
+							<!-- /.col-lg-12 -->
+						</div>
+						<!-- /.row -->
+						<!-- end PAGE TITLE ROW -->
+
+						<div>
+							<div class="col-lg-12">
+
+								<div class="portlet portlet-green">
+									<div class="portlet-body">
+										<ul id="userTab" class="nav nav-tabs">
+											<li class="active"><a href="#kategorien"
+												data-toggle="tab">Kategorien</a></li>
+											<li><a href="#neu-eingestellt" data-toggle="tab">Neu
+													eingestellt</a></li>
+											<li><a href="#bald-endend" data-toggle="tab">Bald
+													endend</a></li>
+											<li><a href="#beliebte-auktionen" data-toggle="tab">Beliebte
+													Auktionen</a></li>
+										</ul>
+										<div id="userTabContent" class="tab-content">
+
+											<div class="tab-pane fade in active" id="kategorien">
+
+												<div class="row">
+													<div class="col-lg-2 col-md-3">
+														<!-- 														<img class="img-responsive img-profile" -->
+														<!-- 															src="img/profile-full.jpg" alt="" /> -->
+
+														<div class="list-group">
+															<a href="#audio-video" data-toggle="tab"
+																class="list-group-item">Audio und Video</a> <a
+																href="#bekleidung" data-toggle="tab"
+																class="list-group-item">Bekleidung</a> <a
+																href="#buecher" data-toggle="tab"
+																class="list-group-item">Bücher</a> <a href="#fahrzeuge"
+																data-toggle="tab" class="list-group-item">Fahrzeuge</a>
+															<a href="#foto-optik" data-toggle="tab"
+																class="list-group-item">Foto und Optik</a> <a
+																href="#gesundheit" data-toggle="tab"
+																class="list-group-item">Gesundheit</a> <a
+																href="#haendy-telefon" data-toggle="tab"
+																class="list-group-item">Händy und Telefon</a> <a
+																href="#lebensmittel" data-toggle="tab"
+																class="list-group-item">Lebensmittel</a> <a
+																href="#musikinstrumente" data-toggle="tab"
+																class="list-group-item">Musikinstrumente</a> <a
+																href="#schmuck" data-toggle="tab"
+																class="list-group-item">Schmuck</a> <a
+																href="#spielwaren" data-toggle="tab"
+																class="list-group-item">Spielwaren</a> <a
+																href="#sport-freizeit" data-toggle="tab"
+																class="list-group-item">Sport und Freizeit</a> <a
+																href="#werkzeuge" data-toggle="tab"
+																class="list-group-item">Werkzeuge</a> <a href="#wohnen"
+																data-toggle="tab" class="list-group-item">Wohnen</a> <a
+																href="#sonstiges" data-toggle="tab"
+																class="list-group-item">Sonstiges</a> <a href="#alle"
+																data-toggle="tab" class="list-group-item">Übersicht
+																aller Auktionen</a>
+
+														</div>
+													</div>
+													<div class="col-lg-7 col-md-5">
+														<h3>Informationen über die Seite</h3>
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+															elit. Nunc placerat diam quis nisl vestibulum dignissim.
+															In hac habitasse platea dictumst. Interdum et malesuada
+															fames ac ante ipsum primis in faucibus. Pellentesque
+															habitant morbi tristique senectus et netus et malesuada
+															fames ac turpis egestas. Etiam placerat nunc ut tellus
+															tristique, non posuere neque iaculis.</p>
+
+														<br /> <br />
+														<hr />
+														<h3>About our Platform</h3>
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+															elit. Nunc placerat diam quis nisl vestibulum dignissim.
+															In hac habitasse platea dictumst. Interdum et malesuada
+															fames ac ante ipsum primis in faucibus. Pellentesque
+															habitant morbi tristique senectus et netus et malesuada
+															fames ac turpis egestas. Etiam placerat nunc ut tellus
+															tristique, non posuere neque iaculis.</p>
+
+													</div>
+													<div class="col-lg-2 col-md-3">
+														<div class="form-group">
+															<label>Benutzer Anmeldung:</label>
+														</div>
+
+														<h:form id="anmeldungform">
+															<div class="form-group">
+																<label>Benutzername:</label>
+																<p:inputText type="text" class="form-control"
+																	value="#{userLogin.username}" required="true" />
+															</div>
+															<div class="form-group">
+																<label>Passwort:</label>
+																<p:password type="text" class="form-control"
+																	value="#{userLogin.password}" required="true" />
+																<div>
+																	<p:commandButton id="myLogInButton" value="Anmelden"
+																		 actionListener="#{userLogin.login}" 
+																		oncomplete="myLoginFunction(xhr, status, args)"  >
+																	</p:commandButton>
+																</div>
+																<hr />
+																<div class="list-group">
+																	<a href="#" class="list-group-item">Haben sie ihr
+																		Passwort vergessen?</a>
+																	<hr />
+																	<a href="#register" class="list-group-item"
+																		data-toggle="tab">Hier können sie sich neu
+																		registrieren</a>
+																	<hr />
+
+																</div>
+
+															</div>
+														</h:form>
+														<h3>Contact Details</h3>
+														<p>
+															<i class="fa fa-globe fa-muted fa-fw"></i> <a href="#">http://www.website.com</a>
+														</p>
+														<p>
+															<i class="fa fa-phone fa-muted fa-fw"></i>
+															017673987837389
+														</p>
+														<p>
+															<i class="fa fa-building-o fa-muted fa-fw"></i> Märkische
+															Str. 3. <br />44222, Dortmund
+														</p>
+														<p>
+															<i class="fa fa-envelope-o fa-muted fa-fw"></i> <a
+																href="#">max.mustermann@website.de</a>
+														</p>
+														<ul class="list-inline">
+															<li><a class="facebook-link" href="#"><i
+																	class="fa fa-facebook-square fa-2x"></i></a></li>
+															<li><a class="twitter-link" href="#"><i
+																	class="fa fa-twitter-square fa-2x"></i></a></li>
+															<li><a class="linkedin-link" href="#"><i
+																	class="fa fa-linkedin-square fa-2x"></i></a></li>
+															<li><a class="google-plus-link" href="#"><i
+																	class="fa fa-google-plus-square fa-2x"></i></a></li>
+														</ul>
+													</div>
+
+												</div>
+
+											</div>
+
+											<div class="tab-pane fade in" id="loggeduser">
+
+												<div class="row">
+													<div class="col-lg-2 col-md-3">
+														<!-- 														<img class="img-responsive img-profile" -->
+														<!-- 															src="img/profile-full.jpg" alt="" /> -->
+
+														<div class="list-group">
+															<a href="#audio-video" data-toggle="tab"
+																class="list-group-item">Audio und Video</a> <a
+																href="#bekleidung" data-toggle="tab"
+																class="list-group-item">Bekleidung</a> <a
+																href="#buecher" data-toggle="tab"
+																class="list-group-item">Bücher</a> <a href="#fahrzeuge"
+																data-toggle="tab" class="list-group-item">Fahrzeuge</a>
+															<a href="#foto-optik" data-toggle="tab"
+																class="list-group-item">Foto und Optik</a> <a
+																href="#gesundheit" data-toggle="tab"
+																class="list-group-item">Gesundheit</a> <a
+																href="#haendy-telefon" data-toggle="tab"
+																class="list-group-item">Händy und Telefon</a> <a
+																href="#lebensmittel" data-toggle="tab"
+																class="list-group-item">Lebensmittel</a> <a
+																href="#musikinstrumente" data-toggle="tab"
+																class="list-group-item">Musikinstrumente</a> <a
+																href="#schmuck" data-toggle="tab"
+																class="list-group-item">Schmuck</a> <a
+																href="#spielwaren" data-toggle="tab"
+																class="list-group-item">Spielwaren</a> <a
+																href="#sport-freizeit" data-toggle="tab"
+																class="list-group-item">Sport und Freizeit</a> <a
+																href="#werkzeuge" data-toggle="tab"
+																class="list-group-item">Werkzeuge</a> <a href="#wohnen"
+																data-toggle="tab" class="list-group-item">Wohnen</a> <a
+																href="#sonstiges" data-toggle="tab"
+																class="list-group-item">Sonstiges</a> <a href="#alle"
+																data-toggle="tab" class="list-group-item">Übersicht
+																aller Auktionen</a>
+
+														</div>
+													</div>
+													<div class="col-lg-7 col-md-5">
+														<h3>Meine gestellte Auktionen</h3>
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+															elit. Nunc placerat diam quis nisl vestibulum dignissim.
+															In hac habitasse platea dictumst. Interdum et malesuada
+															fames ac ante ipsum primis in faucibus. Pellentesque
+															habitant morbi tristique senectus et netus et malesuada
+															fames ac turpis egestas. Etiam placerat nunc ut tellus
+															tristique, non posuere neque iaculis.</p>
+
+														<br /> <br />
+														<hr />
+														<h3>Meine gewonene Auktionen</h3>
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+															elit. Nunc placerat diam quis nisl vestibulum dignissim.
+															In hac habitasse platea dictumst. Interdum et malesuada
+															fames ac ante ipsum primis in faucibus. Pellentesque
+															habitant morbi tristique senectus et netus et malesuada
+															fames ac turpis egestas. Etiam placerat nunc ut tellus
+															tristique, non posuere neque iaculis.</p>
+
+														<h3>Meine beobachtete Auktionen</h3>
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+															elit. Nunc placerat diam quis nisl vestibulum dignissim.
+															In hac habitasse platea dictumst. Interdum et malesuada
+															fames ac ante ipsum primis in faucibus. Pellentesque
+															habitant morbi tristique senectus et netus et malesuada
+															fames ac turpis egestas. Etiam placerat nunc ut tellus
+															tristique, non posuere neque iaculis.</p>
+													</div>
+													<div class="col-lg-2 col-md-3">
+														<div class="form-group">
+															<label>Eingeloggt:</label>
+														</div>
+														<div class="form-group">
+															<label>Benutzername:</label>
+															<h:outputText type="text" class="form-control"
+																value="#{userLogin.username}" required="true" />
+
+															<br /> <a href="#loggeduser" class="list-group-item"
+																data-toggle="tab">Mein Bieter Konto</a>
+
+
+														</div>
+
+														<h3>Contact Details</h3>
+														<p>
+															<i class="fa fa-globe fa-muted fa-fw"></i> <a href="#">http://www.website.com</a>
+														</p>
+														<p>
+															<i class="fa fa-phone fa-muted fa-fw"></i>
+															017673987837389
+														</p>
+														<p>
+															<i class="fa fa-building-o fa-muted fa-fw"></i> Märkische
+															Str. 3. <br />44222, Dortmund
+														</p>
+														<p>
+															<i class="fa fa-envelope-o fa-muted fa-fw"></i> <a
+																href="#">max.mustermann@website.de</a>
+														</p>
+														<ul class="list-inline">
+															<li><a class="facebook-link" href="#"><i
+																	class="fa fa-facebook-square fa-2x"></i></a></li>
+															<li><a class="twitter-link" href="#"><i
+																	class="fa fa-twitter-square fa-2x"></i></a></li>
+															<li><a class="linkedin-link" href="#"><i
+																	class="fa fa-linkedin-square fa-2x"></i></a></li>
+															<li><a class="google-plus-link" href="#"><i
+																	class="fa fa-google-plus-square fa-2x"></i></a></li>
+														</ul>
+													</div>
+
+												</div>
+
+											</div>
+
+											<div class="tab-pane fade" id="neu-eingestellt">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<br /> <br />
+															<hr />
+
+															<div class="portlet-body"></div>
+
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+
+
+											<div class="tab-pane fade" id="bald-endend">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<br /> <br />
+															<hr />
+
+															<div class="portlet-body"></div>
+
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+
+											<div class="tab-pane fade" id="versteigerungsbedingungen">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<div class="col-lg-12 col-md-12">
+																<div>
+																	<a href="#kategorien" data-toggle="tab"
+																		class="list-group-item"> zurück</a>
+																</div>
+																<label>Versteigerungsbedingungen</label>
+																<p>
+																	Lorem ipsum dolor sit amet, consectetur adipiscing
+																	elit. Nunc placerat diam quis nisl vestibulum
+																	dignissim. In hac habitasse platea dictumst. Interdum
+																	et malesuada fames ac ante ipsum primis in faucibus.
+																	Pellentesque habitant morbi tristique senectus et netus
+																	et malesuada fames ac turpis egestas. Etiam placerat
+																	nunc ut tellus tristique, non posuere neque iaculis.
+																	<p>Lorem ipsum dolor sit amet, consectetur
+																		adipiscing elit. Nunc placerat diam quis nisl
+																		vestibulum dignissim. In hac habitasse platea
+																		dictumst. Interdum et malesuada fames ac ante ipsum
+																		primis in faucibus. Pellentesque habitant morbi
+																		tristique senectus et netus et malesuada fames ac
+																		turpis egestas. Etiam placerat nunc ut tellus
+																		tristique, non posuere neque iaculis.</p>
+																</p>
+
+																<br /> <br />
+																<hr />
+																<p>Lorem ipsum dolor sit amet, consectetur
+																	adipiscing elit. Nunc placerat diam quis nisl
+																	vestibulum dignissim. In hac habitasse platea dictumst.
+																	Interdum et malesuada fames ac ante ipsum primis in
+																	faucibus. Pellentesque habitant morbi tristique
+																	senectus et netus et malesuada fames ac turpis egestas.
+																	Etiam placerat nunc ut tellus tristique, non posuere
+																	neque iaculis.</p>
+
+															</div>
+
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="datenschutz">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<div class="col-lg-12 col-md-12">
+																<div>
+																	<a href="#kategorien" data-toggle="tab"
+																		class="list-group-item"> zurück</a>
+																</div>
+																<label>Datenschutzbestimmungen</label>
+																<p>
+																	Lorem ipsum dolor sit amet, consectetur adipiscing
+																	elit. Nunc placerat diam quis nisl vestibulum
+																	dignissim. In hac habitasse platea dictumst. Interdum
+																	et malesuada fames ac ante ipsum primis in faucibus.
+																	Pellentesque habitant morbi tristique senectus et netus
+																	et malesuada fames ac turpis egestas. Etiam placerat
+																	nunc ut tellus tristique, non posuere neque iaculis.
+																	<p>Lorem ipsum dolor sit amet, consectetur
+																		adipiscing elit. Nunc placerat diam quis nisl
+																		vestibulum dignissim. In hac habitasse platea
+																		dictumst. Interdum et malesuada fames ac ante ipsum
+																		primis in faucibus. Pellentesque habitant morbi
+																		tristique senectus et netus et malesuada fames ac
+																		turpis egestas. Etiam placerat nunc ut tellus
+																		tristique, non posuere neque iaculis.</p>
+																</p>
+
+																<br /> <br />
+																<hr />
+																<p>Lorem ipsum dolor sit amet, consectetur
+																	adipiscing elit. Nunc placerat diam quis nisl
+																	vestibulum dignissim. In hac habitasse platea dictumst.
+																	Interdum et malesuada fames ac ante ipsum primis in
+																	faucibus. Pellentesque habitant morbi tristique
+																	senectus et netus et malesuada fames ac turpis egestas.
+																	Etiam placerat nunc ut tellus tristique, non posuere
+																	neque iaculis.</p>
+
+															</div>
+
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+
+											<div class="tab-pane fade" id="impressum">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<div class="col-lg-12 col-md-12">
+																<div>
+																	<a href="#kategorien" data-toggle="tab"
+																		class="list-group-item"> zurück</a>
+																</div>
+																<label>Impressum</label>
+																<hr></hr>
+																<h3>Herausgber:</h3>
+																<p>
+																	Hochschule Ruhr West Bottrop Thierry Aranud Mpouma <br />
+																	Am schöttelse 10 44892 Bochum.
+																</p>
+																<hr></hr>
+																<h3>Betreiber:</h3>
+																<p>
+																	Thierry Aranud Mpouma Am schöttelse 10 ,44892 Bochum. <br />
+																	Telefon: 017645784748 <br /> E-Mail:
+																	redaktion@hrw-auktion.de
+																</p>
+																<hr></hr>
+																<h3>copyright:</h3>
+																<p>Hochschule Ruhr West 2018</p>
+															</div>
+
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+
+											<div class="tab-pane fade" id="kontakt">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<div>
+																<a href="#kategorien" data-toggle="tab"
+																	class="list-group-item"> zurück</a>
+															</div>
+															<label>Kontakt</label>
+
+															<h3>Kontaktieren sie uns</h3>
+															<p>Bei Frangen, Anmerkungen oder Anregungen, bitte
+																setzen sie sich im Kontakt mit uns. Nutzen sie dafür das
+																nachstehende Formular.</p>
+															<div class="form-group">
+																<h:form id="kontaktForm">
+																	<table
+																		class="table table-bordered table-striped table-hover">
+																		<tr>
+																			<td><h:outputText value="Nachname:" /></td>
+																			<td><h:inputText id="fname"
+																					value="#{user.firstName}" required="true"
+																					requiredMessage="Bitte geben sie ihr Nachname ein" /></td>
+																			<td><h:message for="fname" style="color:red" /></td>
+																		</tr>
+																		<tr>
+
+																			<td><h:outputText value="E-mail:" /></td>
+																			<td><h:inputText id="email"
+																					value="#{user.email}" required="true"
+																					requiredMessage="Bitte geben sie ihre E-mail Addresse ein:" /></td>
+																			<td><h:message for="email" style="color:red" /></td>
+																		</tr>
+																		<tr>
+																			<td><h:outputText value="Frage oder Mitteilung:" /></td>
+																			<td><h:inputTextarea rows="10" cols="100"></h:inputTextarea></td>
+																		</tr>
+																		<tr>
+																			<td />
+																			<td><h:commandButton value="Abschicken"
+																					action="#{user.add}" /></td>
+																		</tr>
+																		<tr>
+																			<td><h:outputLink value="home.xhtml">Home</h:outputLink></td>
+																		</tr>
+																	</table>
+																</h:form>
+															</div>
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+
+
+											<div class="tab-pane fade" id="register">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<br /> <br />
+															<hr />
+															<div class="form-group">
+																<h:form id="registerForm">
+																	<table
+																		class="table table-bordered table-striped table-hover">
+																		<tr>
+																			<td><h:outputText value="Nachname:" /></td>
+																			<td><h:inputText id="fname"
+																					value="#{user.firstName}" required="true"
+																					requiredMessage="Bitte geben sie ihr Nachname ein" /></td>
+																			<td><h:message for="fname" style="color:red" /></td>
+																		</tr>
+																		<tr>
+																			<td><h:outputText value="Vorname:" /></td>
+																			<td><h:inputText id="lname"
+																					value="#{user.lastName}" required="true"
+																					requiredMessage="Bitte geben sie ihr Vorname ein" /></td>
+																			<td><h:message for="lname" style="color:red" /></td>
+																		</tr>
+																		<tr>
+																			<td><h:outputText value="Strasse:" /></td>
+																			<td><h:inputText id="street"
+																					value="#{user.street}" required="true"
+																					requiredMessage="Bitte geben sie ihr Strasse ein" /></td>
+																			<td><h:message for="street" style="color:red" /></td>
+																			<td></td>
+																			<td><h:outputText value="HausNummer:" /></td>
+																			<td></td>
+																			<td><h:inputText id="hausNr"
+																					value="#{user.hausNr}" required="true"
+																					requiredMessage="Bitte geben sie die Hausnummer ein" /></td>
+																		</tr>
+																		<tr>
+																			<td><h:outputText value="PLZ:" /></td>
+																			<td><h:inputText id="plz" value="#{user.plz}"
+																					required="true"
+																					requiredMessage="Bitte geben sie die PLZ ein:" /></td>
+																			<td><h:message for="plz" style="color:red" /></td>
+																		</tr>
+																		<tr>
+
+																			<td><h:outputText value="E-mail:" /></td>
+																			<td><h:inputText id="email"
+																					value="#{user.email}" required="true"
+																					requiredMessage="Bitte geben sie ihre E-mail Addresse ein:" /></td>
+																			<td><h:message for="email" style="color:red" /></td>
+																		</tr>
+																		<tr>
+																			<td><h:outputText value="Passwort:" /></td>
+																			<td><h:inputSecret id="psw"
+																					value="#{user.password}" required="true"
+																					requiredMessage="Bitte geben sie ihr Passwort ein:" /></td>
+																			<td><h:message for="psw" style="color:red" /></td>
+																		</tr>
+																		<tr>
+																			<td />
+																			<td><h:commandButton value="Register"
+																					action="#{user.add}" /></td>
+																		</tr>
+																		<tr>
+																			<td><h:outputLink value="home.xhtml">Home</h:outputLink></td>
+																		</tr>
+																	</table>
+																</h:form>
+															</div>
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="beliebte-auktionen">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<br /> <br />
+															<hr />
+
+															<div class="portlet-body"></div>
+
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+
+											<div class="tab-pane fade" id="audio-video">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<br /> <br />
+															<hr />
+
+															<div class="portlet-body"></div>
+
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+
+											<div class="tab-pane fade" id="bekleidung">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<br /> <br />
+															<hr />
+															<div class="portlet-body"></div>
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="buecher">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<br /> <br />
+															<hr />
+															<div class="portlet-body"></div>
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="fahrzeuge">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<br /> <br />
+															<hr />
+															<div class="portlet-body"></div>
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="foto-optik">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<br /> <br />
+															<hr />
+															<div class="portlet-body"></div>
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="gesundheit">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<br /> <br />
+															<hr />
+															<div class="portlet-body"></div>
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="haendy-telefon">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<br /> <br />
+															<hr />
+															<div class="portlet-body"></div>
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="lebensmittel">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<br /> <br />
+															<hr />
+															<div class="portlet-body"></div>
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="musikinstrumente">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<br /> <br />
+															<hr />
+															<div class="portlet-body"></div>
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="schmuck">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<br /> <br />
+															<hr />
+															<div class="portlet-body"></div>
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="spielwaren">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<br /> <br />
+															<hr />
+															<div class="portlet-body"></div>
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="sport-freizeit">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<br /> <br />
+															<hr />
+															<div class="portlet-body"></div>
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="werkzeuge">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<br /> <br />
+															<hr />
+															<div class="portlet-body"></div>
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="wohnen">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<br /> <br />
+															<hr />
+															<div class="portlet-body"></div>
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="sonstiges">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<br /> <br />
+															<hr />
+															<div class="portlet-body"></div>
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="alle">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="col-lg-6">
+															<br /> <br />
+															<hr />
+															<div class="portlet-body"></div>
+														</div>
+														<div class="col-lg-6"></div>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+									<!-- /.portlet-body -->
+								</div>
+								<!-- /.portlet -->
+
+
+							</div>
+							<!-- /.col-lg-12 -->
+
+
+						</div>
+						<!-- /.row -->
+
+					</div>
+					<!-- /.page-content -->
+
+				</div>
+				<!-- /.page-content -->
+
+			</div>
+			<!-- /#page-wrapper -->
+			<!-- end MAIN PAGE CONTENT -->
+			<script
+				src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+			<script>
+				function myLoginFunction(xhr, status,args) {
+					
+					if(args.validationFailed ||!args.loggedIn){
+						alert(args.loggedIn);
+						alert(args.validationFailed);
+						alert("Anmeldung misslungen!!");
+						}
+					else{
+					$('#myLoginButton a[href="#loggeduser" data-toggle= "tab"]').tab('show');
+					}
+			}
+			</script>
+		</ui:define>
+	</ui:composition>
+
+	<!-- GLOBAL SCRIPTS -->
+	<script src="js/plugins/bootstrap/bootstrap.min.js"></script>
+	<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="js/plugins/popupoverlay/jquery.popupoverlay.js"></script>
+	<script src="js/plugins/popupoverlay/defaults.js"></script>
+	<!-- Logout Notification Box -->
+
+	<!-- /#logout -->
+	<!-- Logout Notification jQuery -->
+	<script src="js/plugins/popupoverlay/logout.js"></script>
+	<!-- HISRC Retina Images -->
+	<script src="js/plugins/hisrc/hisrc.js"></script>
+
+	<!-- PAGE LEVEL PLUGIN SCRIPTS -->
+	<!-- HubSpot Messenger -->
+	<script src="js/plugins/messenger/messenger.min.js"></script>
+	<script src="js/plugins/messenger/messenger-theme-flat.js"></script>
+	<!-- Date Range Picker -->
+	<script src="js/plugins/daterangepicker/moment.js"></script>
+	<script src="js/plugins/daterangepicker/daterangepicker.js"></script>
+	<!-- Morris Charts -->
+	<script src="js/plugins/morris/raphael-2.1.0.min.js"></script>
+	<script src="js/plugins/morris/morris.js"></script>
+	<!-- Flot Charts -->
+	<script src="js/plugins/flot/jquery.flot.js"></script>
+	<script src="js/plugins/flot/jquery.flot.resize.js"></script>
+	<!-- Sparkline Charts -->
+	<script src="js/plugins/sparkline/jquery.sparkline.min.js"></script>
+	<!-- Moment.js -->
+	<script src="js/plugins/moment/moment.min.js"></script>
+	<!-- jQuery Vector Map -->
+	<script src="js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+	<script
+		src="js/plugins/jvectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
+	<script src="js/demo/map-demo-data.js"></script>
+	<!-- Easy Pie Chart -->
+	<script src="js/plugins/easypiechart/jquery.easypiechart.min.js"></script>
+	<!-- DataTables -->
+	<script src="js/plugins/datatables/jquery.dataTables.js"></script>
+	<script src="js/plugins/datatables/datatables-bs3.js"></script>
+
+	<!-- THEME SCRIPTS -->
+	<script src="js/flex.js"></script>
+	<script src="js/demo/dashboard-demo.js"></script>
+
+</h:body>
+</html>
