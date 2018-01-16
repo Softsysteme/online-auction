@@ -36,9 +36,8 @@
 					</execution>
 				</executions>
 				<configuration>
-					<imageName>hrw_auction</imageName>
-					<baseImage>java:8</baseImage>
-					<entryPoint>["java", "-jar", "/${project.build.finalName}.war"]</entryPoint>
+				<imageName>online-auction</imageName>
+					<dockerDirectory>${project.basedir}</dockerDirectory>
 					<!-- <pushImage>${push.image}</pushImage>true when Jenkins builds, false 
 						otherwise -->
 					<serverId>docker-hub</serverId>
@@ -165,7 +164,6 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
-			<scope>test</scope>
 		</dependency>
 
 		<!-- MySQL database driver -->
