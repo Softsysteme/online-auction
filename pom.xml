@@ -36,7 +36,7 @@
 					</execution>
 				</executions>
 				<configuration>
-				<imageName>online-auction</imageName>
+					<imageName>online-auction</imageName>
 					<dockerDirectory>${project.basedir}</dockerDirectory>
 					<!-- <pushImage>${push.image}</pushImage>true when Jenkins builds, false 
 						otherwise -->
@@ -55,6 +55,36 @@
 						</resource>
 					</resources>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.dkanejs.maven.plugins</groupId>
+				<artifactId>docker-compose-maven-plugin</artifactId>
+				<version>1.0.1</version>
+				<executions>
+					<execution>
+						<id>up</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>up</goal>
+						</goals>
+						<configuration>
+							<composeFile>${project.basedir}/docker-compose.yml</composeFile>
+							<detachedMode>true</detachedMode>
+						</configuration>
+					</execution>
+					<execution>
+						<id>down</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>down</goal>
+						</goals>
+						<configuration>
+							<composeFile>${project.basedir}/docker-compose.yml</composeFile>
+							<removeVolumes>true</removeVolumes>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
@@ -220,6 +250,11 @@
 			<artifactId>javaee-api</artifactId>
 			<version>7.0</version>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.dkanejs.maven.plugins</groupId>
+			<artifactId>docker-compose-maven-plugin</artifactId>
+			<version>1.0.1</version>
 		</dependency>
 	</dependencies>
 </project>
