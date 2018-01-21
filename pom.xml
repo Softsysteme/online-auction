@@ -146,14 +146,6 @@
 			<version>6.0.6</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/jboss/jboss-annotations-ejb3 -->
-		<dependency>
-			<groupId>jboss</groupId>
-			<artifactId>jboss-annotations-ejb3</artifactId>
-			<version>4.2.3.GA</version>
-			<scope>provided</scope>
-		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/javax.ejb/ejb-api -->
 		<dependency>
 			<groupId>javax.ejb</groupId>
