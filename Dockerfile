@@ -6,7 +6,7 @@ USER root
 
 # create folders and copy data into
 RUN mkdir /start
-ADD  bin2 /start
+ADD  bin2/ /start
 ADD  customization /opt/jboss/wildfly/customization/
 ADD  modules/ /opt/jboss/wildfly/modules
 
@@ -28,7 +28,7 @@ EXPOSE 9990
 VOLUME /data/logs
 
 # setup environment
-ENV DB_HOST 127.0.0.1
+ENV DB_HOST localhost
 ENV DB_PORT 3306
 ENV DB_USER root
 ENV DB_PASSWORD Ioriyagami88
@@ -37,12 +37,12 @@ ENV AWS_KEY AKXXXXXXXXXXXXXXXXXX
 ENV AWS_SECRET fDEXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 # add management user to jboss wildfly 10 application server
-RUN /opt/jboss/wildfly/bin/add-user.sh admin password --silent
+RUN /opt/jboss/wildfly/bin/add-user.sh admin password 
 # run our app service customization script using standalone mode with standalone.xml configuration
 RUN /opt/jboss/wildfly/customization/execute.sh standalone standalone.xml
 
 # copy the application
-#ADD Application.ear /opt/jboss/wildfly/standalone/deployments/Application.ear
+ADD /target/online-auction-0.0.1-SNAPSHOT.war /opt/jboss/wildfly/standalone/deployments/online-auction-0.0.1-SNAPSHOT.war
 
 # NOTE!!!
 # Do frequently changing stuff at the end of a dockerfile, because if there is no change in previous steps the cache is used.

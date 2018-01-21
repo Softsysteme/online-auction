@@ -1,4 +1,3 @@
-main\java\rest\config\HelloResource.class
 main\java\auction\WerkzeugeAndMaschinen.class
 main\java\auction\Sonstiges.class
 main\java\auction\Bekleidung.class
@@ -7,7 +6,6 @@ main\java\sessionBeans\UserSession.class
 main\java\auction\Schmuck.class
 main\java\auction\Message.class
 main\java\auction\Computer.class
-main\java\rest\config\RestConfig.class
 main\java\auction\FotoAndOptik.class
 main\java\managedBeans\UserNewAuction.class
 main\java\primefaces\PrimeFaces$Ajax.class

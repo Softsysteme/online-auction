@@ -15,15 +15,15 @@ xa-data-source add \
     --name=HrwAuctionDS \
     --driver-name=mysql \
     --jndi-name=java:jboss/datasources/HrwAuctionDS \
-    ---user-name=###DB_USER### \
-    --password=###DB_PASSWORD### \
+    --user-name=root \
+    --password=Ioriyagami88 \
     --use-ccm=false \
     --max-pool-size=25 \
     --blocking-timeout-wait-millis=5000 \
     --enabled=true
-/subsystem=datasources/xa-data-source=HrwAuctionDS/xa-datasource-properties=ServerName:add(value=###DB_HOST###)
-/subsystem=datasources/xa-data-source=HrwAuctionDS/xa-datasource-properties=PortNumber:add(value=###DB_PORT###)
-/subsystem=datasources/xa-data-source=HrwAuctionDS/xa-datasource-properties=DatabaseName:add(value=###DB_SCHEMA###)
+/subsystem=datasources/xa-data-source=HrwAuctionDS/xa-datasource-properties=ServerName:add(value=Mysql)
+/subsystem=datasources/xa-data-source=HrwAuctionDS/xa-datasource-properties=PortNumber:add(value=3306)
+/subsystem=datasources/xa-data-source=HrwAuctionDS/xa-datasource-properties=DatabaseName:add(value=hrw_auction)
 
 # add a new periodic file handler for custom log file
 /subsystem=logging/periodic-rotating-file-handler=CUSTOM-LOG:add(level=DEBUG, file={"relative-to"=>"jboss.server.log.dir", "path"=>"custom.log"}, suffix=".yyyy-MM-dd", formatter="%d{MM-dd-yyyy HH:mm:ss,SSS} %-5p [%c] (%t) %s%E%n",  append=false, autoflush=true)

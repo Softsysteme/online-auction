@@ -7,11 +7,11 @@ set -eo pipefail
 host_ip=$(hostname -I)
 
 # replace our markers in the standalone.xml, which we added over the CLI Command script on container build.
-sed -e "s/###DB_HOST###/${DB_HOST}/g" \
-	-e "s/###DB_PORT###/${DB_PORT}/g" \
-	-e "s/###DB_SCHEMA###/${DB_SCHEMA}/g" \
-	-e "s/###DB_USER###/${DB_USER}/g" \
-	-e "s/###DB_PASSWORD###/${DB_PASSWORD}/g" \
+sed -e "s/localhost/${DB_HOST}/g" \
+	-e "s/3306/${DB_PORT}/g" \
+	-e "s/hrw_auction/${DB_SCHEMA}/g" \
+	-e "s/root/${DB_USER}/g" \
+	-e "s/Ioriyagami88/${DB_PASSWORD}/g" \
 	-i /opt/jboss/wildfly/standalone/configuration/standalone.xml
 
 # if the container CMD value is jboss, run wildfly
