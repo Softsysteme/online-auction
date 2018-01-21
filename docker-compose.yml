@@ -1,13 +1,15 @@
 version: '3'
 services:
+  MySQL:
+      container_name: "db"
+      image: mysql:latest
+      environment:
+        - MYSQL_USER=root
+        - MYSQL_DATABASE=hwr_auction
+        - MYSQL_ROOT_PASSWORD=Ioriyagami88
+
   mywildfly:
     image: online-auction:latest
     ports:
-      - 9090:8080
-  MySQL:
-    container_name: "db"
-    image: mysql:latest
-    environment:
-      - MYSQL_USER=root
-      - MYSQL_DATABASE=hwr_auction
-      - MYSQL_ROOT_PASSWORD=Ioriyagami88
+      - 8080:9090
+ 

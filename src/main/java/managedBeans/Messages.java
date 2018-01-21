@@ -5,6 +5,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
 public class Messages {
+	public Messages() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@ManagedBean
 	public class MessagesView {
 

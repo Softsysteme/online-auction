@@ -42,7 +42,7 @@ RUN /opt/jboss/wildfly/bin/add-user.sh admin password
 RUN /opt/jboss/wildfly/customization/execute.sh standalone standalone.xml
 
 # copy the application
-ADD /target/online-auction-0.0.1-SNAPSHOT.war /opt/jboss/wildfly/standalone/deployments/online-auction-0.0.1-SNAPSHOT.war
+ADD target/online-auction-0.0.1-SNAPSHOT.war /opt/jboss/wildfly/standalone/deployments/online-auction-0.0.1-SNAPSHOT.war
 
 # NOTE!!!
 # Do frequently changing stuff at the end of a dockerfile, because if there is no change in previous steps the cache is used.

@@ -73,17 +73,17 @@
 							<detachedMode>true</detachedMode>
 						</configuration>
 					</execution>
-					<execution>
-						<id>down</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>down</goal>
-						</goals>
-						<configuration>
-							<composeFile>${project.basedir}/docker-compose.yml</composeFile>
-							<removeVolumes>true</removeVolumes>
-						</configuration>
-					</execution>
+<!-- 					<execution> -->
+<!-- 						<id>down</id> -->
+<!-- 						<phase>verify</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>down</goal> -->
+<!-- 						</goals> -->
+<!-- 						<configuration> -->
+<!-- 							<composeFile>${project.basedir}/docker-compose.yml</composeFile> -->
+<!-- 							<removeVolumes>true</removeVolumes> -->
+<!-- 						</configuration> -->
+<!-- 					</execution> -->
 				</executions>
 			</plugin>
 		</plugins>
