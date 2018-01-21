@@ -46,11 +46,11 @@
 						<resource>
 							<targetPath>/</targetPath>
 							<directory>${project.build.directory}</directory>
-							<excludes>
-								<exclude>target/**/*</exclude>
-								<exclude>pom.xml</exclude>
-								<exclude>*.iml</exclude>
-							</excludes>
+<!-- 							<excludes> -->
+<!-- 								<exclude>target/**/*</exclude> -->
+<!-- 								<exclude>pom.xml</exclude> -->
+<!-- 								<exclude>*.iml</exclude> -->
+<!-- 							</excludes> -->
 							<include>${project.build.finalName}.war</include>
 						</resource>
 					</resources>
@@ -146,29 +146,6 @@
 			<version>6.0.6</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.primefaces.themes</groupId>
-			<artifactId>cupertino</artifactId>
-			<version>1.0.10</version>
-		</dependency>
-		<dependency>
-			<groupId>org.primefaces.themes</groupId>
-			<artifactId>cupertino</artifactId>
-			<version>1.0.10</version>
-		</dependency>
-
-
-		<dependency>
-			<groupId>org.primefaces.themes</groupId>
-			<artifactId>all-themes</artifactId>
-			<version>1.0.10</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.primefaces.themes</groupId>
-			<artifactId>all-themes</artifactId>
-			<version>1.0.10</version>
-		</dependency>
 		<!-- https://mvnrepository.com/artifact/jboss/jboss-annotations-ejb3 -->
 		<dependency>
 			<groupId>jboss</groupId>
@@ -256,5 +233,12 @@
 			<artifactId>docker-compose-maven-plugin</artifactId>
 			<version>1.0.1</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.wildfly.core/wildfly-cli -->
+		<dependency>
+		    <groupId>org.wildfly.core</groupId>
+		    <artifactId>wildfly-cli</artifactId>
+		    <version>2.2.0.Final</version>
+		</dependency>
+		
 	</dependencies>
 </project>
