@@ -6,10 +6,10 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
-import org.primefaces.context.PrimeFacesContext;
-
 import main.java.primefaces.PrimeFaces;
 import main.java.sessionBeans.UserSession;
+
+
 
 @ManagedBean
 public class UserLogin {

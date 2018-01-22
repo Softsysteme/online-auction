@@ -23,69 +23,6 @@
 					<warSourceDirectory>WebContent</warSourceDirectory>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>com.spotify</groupId>
-				<artifactId>docker-maven-plugin</artifactId>
-				<version>0.4.10</version>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>build</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<imageName>online-auction</imageName>
-					<dockerDirectory>${project.basedir}</dockerDirectory>
-					<!-- <pushImage>${push.image}</pushImage>true when Jenkins builds, false 
-						otherwise -->
-					<serverId>docker-hub</serverId>
-					<registryUrl>https://index.docker.io/v1/</registryUrl>
-					<resources>
-						<resource>
-							<targetPath>/</targetPath>
-							<directory>${project.build.directory}</directory>
-<!-- 							<excludes> -->
-<!-- 								<exclude>target/**/*</exclude> -->
-<!-- 								<exclude>pom.xml</exclude> -->
-<!-- 								<exclude>*.iml</exclude> -->
-<!-- 							</excludes> -->
-							<include>${project.build.finalName}.war</include>
-						</resource>
-					</resources>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>com.dkanejs.maven.plugins</groupId>
-				<artifactId>docker-compose-maven-plugin</artifactId>
-				<version>1.0.1</version>
-				<executions>
-					<execution>
-						<id>up</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>up</goal>
-						</goals>
-						<configuration>
-							<composeFile>${project.basedir}/docker-compose.yml</composeFile>
-							<detachedMode>true</detachedMode>
-						</configuration>
-					</execution>
-<!-- 					<execution> -->
-<!-- 						<id>down</id> -->
-<!-- 						<phase>verify</phase> -->
-<!-- 						<goals> -->
-<!-- 							<goal>down</goal> -->
-<!-- 						</goals> -->
-<!-- 						<configuration> -->
-<!-- 							<composeFile>${project.basedir}/docker-compose.yml</composeFile> -->
-<!-- 							<removeVolumes>true</removeVolumes> -->
-<!-- 						</configuration> -->
-<!-- 					</execution> -->
-				</executions>
-			</plugin>
 		</plugins>
 	</build>
 	<profiles>
@@ -227,16 +164,16 @@
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.wildfly.core/wildfly-cli -->
 		<dependency>
-		    <groupId>org.wildfly.core</groupId>
-		    <artifactId>wildfly-cli</artifactId>
-		    <version>2.2.0.Final</version>
-		      <exclusions>
-            <exclusion>
-                <groupId>sun.jdk</groupId>
-                <artifactId>jconsole</artifactId>
-            </exclusion>
-        </exclusions>
-        <scope>test</scope>
+			<groupId>org.wildfly.core</groupId>
+			<artifactId>wildfly-cli</artifactId>
+			<version>2.2.0.Final</version>
+			<exclusions>
+				<exclusion>
+					<groupId>sun.jdk</groupId>
+					<artifactId>jconsole</artifactId>
+				</exclusion>
+			</exclusions>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 </project>
