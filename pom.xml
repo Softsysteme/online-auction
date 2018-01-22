@@ -81,7 +81,7 @@
 						<configuration>
 							<failOnMissingWebXml>false</failOnMissingWebXml>
 							<outputDirectory>deployments</outputDirectory>
-							<warName>ROOT</warName>
+							<warName>online-auction-${project.version}.war</warName>
 						</configuration>
 					</plugin>
 				</plugins>
