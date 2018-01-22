@@ -1,5 +1,5 @@
   import jenkins.model.*
-node("docker") {
+node {
     def app
 
     stage('Clone repository') {
