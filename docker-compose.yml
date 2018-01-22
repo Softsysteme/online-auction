@@ -11,5 +11,5 @@ services:
   mywildfly:
     image: online-auction:latest
     ports:
-      - 8080:9090
+      - 8080
  

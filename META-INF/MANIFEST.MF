@@ -11,7 +11,7 @@ Export-Package: auction,
  auction.implementation,
  auction.interfaces,
  auction.util
-Require-Bundle: org.eclipse.core.runtime,
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.13.0",
  org.eclipse.emf.ecore;visibility:=reexport,
  org.junit;bundle-version="[4.12.0,4.13.0)"
 Bundle-ActivationPolicy: lazy
