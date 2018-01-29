@@ -28,9 +28,9 @@ EXPOSE 9990
 VOLUME /data/logs
 
 # setup environment
-ENV DB_HOST localhost
+ENV DB_HOST mysql
 ENV DB_PORT 3306
-ENV DB_USER root
+ENV DB_USER user
 ENV DB_PASSWORD Ioriyagami88
 ENV DB_SCHEMA hrw_auction
 ENV AWS_KEY AKXXXXXXXXXXXXXXXXXX
