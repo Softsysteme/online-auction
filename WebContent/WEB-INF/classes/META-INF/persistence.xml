@@ -6,7 +6,7 @@
 	<persistence-unit name="online_auktion_PU"
 		transaction-type="JTA">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-		<jta-data-source>java:/HrwAuctionDS</jta-data-source>
+		<jta-data-source>java:/MySQLDS</jta-data-source>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 
 		<properties>
