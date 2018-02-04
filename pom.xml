@@ -23,88 +23,71 @@
 					<warSourceDirectory>WebContent</warSourceDirectory>
 				</configuration>
 			</plugin>
-<!-- 			<plugin> -->
-<!-- 				<groupId>io.fabric8</groupId> -->
-<!-- 				<artifactId>docker-maven-plugin</artifactId> -->
-<!-- 				<version>0.20.0</version> -->
-<!-- 				<configuration> -->
-<!-- 					<registry>registry.hub.docker.com/mpouma</registry> -->
+			<!-- <plugin> -->
+			<!-- <groupId>io.fabric8</groupId> -->
+			<!-- <artifactId>docker-maven-plugin</artifactId> -->
+			<!-- <version>0.20.0</version> -->
+			<!-- <configuration> -->
+			<!-- <registry>registry.hub.docker.com/mpouma</registry> -->
 
-<!-- 					<images> -->
-<!-- 						<image> -->
-<!-- 							<name>online_auction_image:${project.version}</name> -->
-<!-- 							<alias>online_auction_image</alias> -->
-<!-- 							<build> -->
-<!-- 								<dockerFileDir>${project.basedir}</dockerFileDir> -->
+			<!-- <images> -->
+			<!-- <image> -->
+			<!-- <name>online_auction_image:${project.version}</name> -->
+			<!-- <alias>online_auction_image</alias> -->
+			<!-- <build> -->
+			<!-- <dockerFileDir>${project.basedir}</dockerFileDir> -->
 
-<!-- 							</build> -->
-<!-- 						</image> -->
-<!-- 					</images> -->
-<!-- 					<authConfig> -->
-<!-- 						<username>mpouma</username> -->
-<!-- 						<password>Ioriyagami88</password> -->
-<!-- 					</authConfig> -->
-<!-- 				</configuration> -->
+			<!-- </build> -->
+			<!-- </image> -->
+			<!-- </images> -->
+			<!-- <authConfig> -->
+			<!-- <username>mpouma</username> -->
+			<!-- <password>Ioriyagami88</password> -->
+			<!-- </authConfig> -->
+			<!-- </configuration> -->
 
-<!-- 				<executions> -->
-<!-- 					<execution> -->
-<!-- 						<id>start</id> -->
-<!-- 						<phase>pre-integration-test</phase> -->
-<!-- 						<goals> -->
-<!-- 							<goal>stop</goal> -->
-<!-- 							<goal>build</goal> -->
-<!-- 							<goal>start</goal> -->
-<!-- 						</goals> -->
-<!-- 					</execution> -->
-<!-- 					<execution> -->
-<!-- 						<id>push</id> -->
-<!-- 						<phase>post-integration-test</phase> -->
-<!-- 						<goals> -->
-<!-- 							<goal>stop</goal> -->
-<!-- 							<goal>push</goal> -->
-<!-- 						</goals> -->
-<!-- 					</execution> -->
-<!-- 				</executions> -->
-<!-- 			</plugin> -->
+			<!-- <executions> -->
+			<!-- <execution> -->
+			<!-- <id>start</id> -->
+			<!-- <phase>pre-integration-test</phase> -->
+			<!-- <goals> -->
+			<!-- <goal>stop</goal> -->
+			<!-- <goal>build</goal> -->
+			<!-- <goal>start</goal> -->
+			<!-- </goals> -->
+			<!-- </execution> -->
+			<!-- <execution> -->
+			<!-- <id>push</id> -->
+			<!-- <phase>post-integration-test</phase> -->
+			<!-- <goals> -->
+			<!-- <goal>stop</goal> -->
+			<!-- <goal>push</goal> -->
+			<!-- </goals> -->
+			<!-- </execution> -->
+			<!-- </executions> -->
+			<!-- </plugin> -->
 		</plugins>
 	</build>
-	<!-- <profiles> -->
-	<!-- <profile> -->
-	<!-- <id>openshift</id> -->
-	<!-- <build> -->
-	<!-- <finalName>online-auction</finalName> -->
-	<!-- <plugins> -->
-	<!-- <plugin> -->
-	<!-- <groupId>org.apache.maven.plugins</groupId> -->
-	<!-- <artifactId>maven-war-plugin</artifactId> -->
-	<!-- <version>2.3</version> -->
-	<!-- <configuration> -->
-	<!-- <failOnMissingWebXml>false</failOnMissingWebXml> -->
-	<!-- <outputDirectory>deployments</outputDirectory> -->
-	<!-- <warName>online-auction-${project.version}</warName> -->
-	<!-- </configuration> -->
-	<!-- </plugin> -->
-	<!-- </plugins> -->
-	<!-- </build> -->
-	<!-- </profile> -->
-	<!-- <profile> -->
-	<!-- <id>local</id> -->
-	<!-- <build> -->
-	<!-- <finalName>online-auction</finalName> -->
-	<!-- <plugins> -->
-	<!-- <plugin> -->
-	<!-- <groupId>org.apache.maven.plugins</groupId> -->
-	<!-- <artifactId>maven-war-plugin</artifactId> -->
-	<!-- <version>2.3</version> -->
-	<!-- <configuration> -->
-	<!-- <failOnMissingWebXml>false</failOnMissingWebXml> -->
-	<!-- <outputDirectory>${env.WILDFLY_HOME}/standalone/deployments</outputDirectory> -->
-	<!-- </configuration> -->
-	<!-- </plugin> -->
-	<!-- </plugins> -->
-	<!-- </build> -->
-	<!-- </profile> -->
-	<!-- </profiles> -->
+	<profiles>
+		<profile>
+			<id>openshift</id>
+			<build>
+				<finalName>online-auction</finalName>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-war-plugin</artifactId>
+						<version>2.3</version>
+						<configuration>
+							<failOnMissingWebXml>false</failOnMissingWebXml>
+							<outputDirectory>target</outputDirectory>
+							<warName>online-auction-${project.version}</warName>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/com.sun.faces/jsf-impl -->
 		<dependency>
