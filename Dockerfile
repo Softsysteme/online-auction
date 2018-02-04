@@ -8,7 +8,7 @@ USER root
 RUN mkdir /start
 ADD  bin2/ /start
 ADD  customization /opt/jboss/wildfly/customization/
-ADD  modules/ /opt/jboss/wildfly/modules
+ADD  modules /opt/jboss/wildfly/modules/
 
 # set owner ship and rights
 RUN chown -R jboss:jboss /start
@@ -27,22 +27,13 @@ EXPOSE 9990
 # provide mount able volume path
 VOLUME /data/logs
 
-# setup environment
-ENV DB_HOST mysql
-ENV DB_PORT 3306
-ENV DB_USER user
-ENV DB_PASSWORD Ioriyagami88
-ENV DB_SCHEMA hrw_auction
-ENV AWS_KEY AKXXXXXXXXXXXXXXXXXX
-ENV AWS_SECRET fDEXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
 # add management user to jboss wildfly 10 application server
 RUN /opt/jboss/wildfly/bin/add-user.sh admin password 
 # run our app service customization script using standalone mode with standalone.xml configuration
 RUN /opt/jboss/wildfly/customization/execute.sh standalone standalone.xml
 
 # copy the application
-COPY target/online-auction-0.0.1-SNAPSHOT.war /opt/jboss/wildfly/standalone/deployments/
+COPY /target/online-auction-0.0.1-SNAPSHOT.war /opt/jboss/wildfly/standalone/deployments/
 
 # NOTE!!!
 # Do frequently changing stuff at the end of a dockerfile, because if there is no change in previous steps the cache is used.

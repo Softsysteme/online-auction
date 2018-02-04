@@ -12,4 +12,4 @@ services:
     image: online-auction:latest
     ports:
       - 8080
- 
+      - 9990

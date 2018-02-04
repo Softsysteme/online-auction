@@ -1,34 +1,11 @@
-connect
+# Mark the commands below to be run as a batch
 batch
 
-# register the mysql driver modul on name mysql
-/subsystem=datasources/jdbc-driver=mysql:add( \
-    driver-name=mysql, \
-    driver-module-name=com.mysql.driver, \
-    driver-xa-datasource-class-name=com.mysql.jdbc.jdbc2.optional.MysqlXADataSource \
-)
+# Add MySQL driver
+/subsystem=datasources/jdbc-driver=mysql:add(driver-name=mysql,driver-module-name=com.mysql.jdbc,driver-xa-datasource-class-name=com.mysql.jdbc.jdbc2.optional.MysqlXADataSource)
 
-# add a xa datasource using the mysql driver module.
-# instead of writing real connection values we use placeholders, which we can replace
-# on the fly when container starts.
-xa-data-source add \
-    --name=HrwAuctionDS \
-    --driver-name=mysql \
-    --jndi-name=java:jboss/datasources/HrwAuctionDS \
-    --user-name=root \
-    --password=Ioriyagami88 \
-    --use-ccm=false \
-    --max-pool-size=25 \
-    --blocking-timeout-wait-millis=5000 \
-    --enabled=true
-/subsystem=datasources/xa-data-source=HrwAuctionDS/xa-datasource-properties=ServerName:add(value=Mysql)
-/subsystem=datasources/xa-data-source=HrwAuctionDS/xa-datasource-properties=PortNumber:add(value=3306)
-/subsystem=datasources/xa-data-source=HrwAuctionDS/xa-datasource-properties=DatabaseName:add(value=hrw_auction)
+# Add the datasource
+data-source add --name=HrwAuctionDS --driver-name=mysql --jndi-name=java:jboss/datasources/HrwAuctionDS --connection-url=jdbc:mysql://localhost:3306/hrw_auction?useUnicode=true&amp;characterEncoding=UTF-8 --user-name=root --password=Ioriyagami88 --use-ccm=false --max-pool-size=25 --blocking-timeout-wait-millis=5000 --enabled=true
 
-# add a new periodic file handler for custom log file
-/subsystem=logging/periodic-rotating-file-handler=CUSTOM-LOG:add(level=DEBUG, file={"relative-to"=>"jboss.server.log.dir", "path"=>"custom.log"}, suffix=".yyyy-MM-dd", formatter="%d{MM-dd-yyyy HH:mm:ss,SSS} %-5p [%c] (%t) %s%E%n",  append=false, autoflush=true)
-
-# bind a logger category to your custom log handler
-/subsystem=logging/logger=com.my.application.category:add(use-parent-handlers=true,handlers=["CUSTOM-LOG"])
-
+# Execute the batch
 run-batch
