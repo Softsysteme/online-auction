@@ -1,11 +1,14 @@
 package main.java.managedBeans;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
-
 
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
@@ -13,6 +16,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
+import javax.imageio.ImageIO;
 
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
@@ -39,7 +43,7 @@ public class UserNewAuction {
 
 	protected double initialPrice;
 	protected String name;
-	protected byte[] photo;
+	protected BufferedImage photo;
 	private int auctionDuration;
 
 	public int getAuctionDuration() {
@@ -68,9 +72,9 @@ public class UserNewAuction {
 
 	private String categoryTags = "Audio und Video, Bekleidung, Sport und Freizeit";
 
-	private static String[] categories = { "AudioAndVideo", "Bekleidung", "Buecher", "Fahrzeuge", "FotoAndOptik",
-			"Gesundheit", "HaendyAndTelefon", "Lebensmittel", "Musikinstrumente", "Schmuck", "Spielwaren",
-			"SportAndFreizeit", "Werkzeuge", "Wohnene", "Sonstiges" };
+	private static String[] categories = { "AudioAndVideo", "Bekleidung", "Buecher", "Computer", "Fahrzeuge",
+			"FotoAndOptik", "Gesundheit", "HaendyAndTelefon", "LebensmittelAndGetraenke", "Musikinstrumente", "Schmuck",
+			"Spielwaren", "SportAndFreizeit", "WerkzeugeAndMaschinen", "Wohnen", "Sonstiges" };
 
 	public String getCategoriesCSV() {
 		StringBuilder b = new StringBuilder();
@@ -119,11 +123,11 @@ public class UserNewAuction {
 		this.name = name;
 	}
 
-	public byte[] getPhoto() {
+	public BufferedImage getPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(byte[] photo) {
+	public void setPhoto(BufferedImage photo) {
 		this.photo = photo;
 	}
 
@@ -174,19 +178,24 @@ public class UserNewAuction {
 		if (file != null) {
 			FacesMessage message = new FacesMessage("Succesful", event.getFile().getFileName() + " is uploaded.");
 			FacesContext.getCurrentInstance().addMessage(null, message);
-			file=event.getFile();
-			System.out.println(file+"weeeeeeeeeeeeeeee");
-			this.setPhoto(file.getContents());
+			file = event.getFile();
+			byte[] imagedata = file.getContents();
+			if (imagedata != null) {
+				try {
+					this.setPhoto(ImageIO.read(new ByteArrayInputStream(imagedata)));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 
 	public void createAuction() {
-	
+
 		Class<?> clazz = null;
 
 		try {
-			System.out.println(file+"weeeeeeeeeeeeeeee");
-			System.out.println("main.java.auction." + this.getCategoryName());
 			clazz = Class.forName("main.java.auction." + this.getCategoryName());
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -224,10 +233,23 @@ public class UserNewAuction {
 		// ((Item) item).setCategory(this.category);
 		itemcasted.setDescription(this.getDescription());
 		itemcasted.setInitialPrice(this.getInitialPrice());
-		itemcasted.setPhoto(this.getPhoto());
+		byte[] foto = null;
+		if (this.getPhoto() != null) {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			try {
+				ImageIO.write(this.getPhoto(), "jpg", baos);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			foto = baos.toByteArray();
+			itemcasted.setPhoto(foto);
+
+		}
+
 		itemcasted.setAuctionDuration(this.getAuctionDuration());
 		itemcasted.setOwner(this.getUserSession().getCurrentuser());
-		itemcasted.setCategory(this.userSession.searchCategory(this.getCategoryName()));
+		itemcasted.setCategory(this.userSession.searchCategory(this.resolveCategoryName(this.getCategoryName())));
 		userSession.postNewAuction(itemcasted);
 	}
 
@@ -255,4 +277,34 @@ public class UserNewAuction {
 		}
 	}
 
+	public String resolveCategoryName(String name) {
+
+		switch (name) {
+		case "AudioAndVideo":
+			return "Audio Und Video";
+
+		case "HaendyAndKommunication":
+			return "Haendy Und Telefon";
+
+		case "Buecher":
+			return "Bücher";
+
+		case "FotoAndOptik":
+			return "Foto Und Optik";
+
+		case "LebensmittelAndGetraenke":
+			return "Lebensmittel";
+
+		case "SportAndFreizeit":
+			return "Sport Und Freizeit";
+
+		case "WerkzeugeAndMaschinen":
+			return "Werkzeuge Und Maschinen";
+
+		default:
+			return name;
+
+		}
+
+	}
 }

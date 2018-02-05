@@ -146,6 +146,22 @@ public class UserSession {
 		return category;
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<Category> getAllCategories() {
+		List<Category> result = new ArrayList<Category>();
+		Query request = em.createQuery("from Category c ");
+		try {
+			result.addAll(request.getResultList());
+		} catch (NoResultException e) {
+			return null;
+		} catch (Exception e) {
+			throw new DAOException(e);
+		}
+
+		return result;
+
+	}
+
 	public void placeBid(Bid bid) {
 		try {
 			em.persist(bid);

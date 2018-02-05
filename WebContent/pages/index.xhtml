@@ -336,7 +336,9 @@
 															<div class="portlet-body"></div>
 
 														</div>
-														<div class="col-lg-6"></div>
+														<div class="col-lg-6">
+															<h2>Liste leer!</h2>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -352,7 +354,9 @@
 															<div class="portlet-body"></div>
 
 														</div>
-														<div class="col-lg-6"></div>
+														<div class="col-lg-6">
+															<h2>Liste leer!</h2>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -641,7 +645,9 @@
 															<div class="portlet-body"></div>
 
 														</div>
-														<div class="col-lg-6"></div>
+														<div class="col-lg-6">
+															<h2>Liste leer!</h2>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -667,7 +673,7 @@
 																			<td><h:inputTextarea id="auctbeschr" rows="10"
 																					cols="100" value="#{userNewAuction.description}"
 																					required="true"
-																					requiredMessage="Bitte geben sie ihr Vorname ein" />
+																					requiredMessage="Bitte geben sie eine Beschreibung an" />
 																			</td>
 																			<td><p:message for="auctbeschr"
 																					style="color:red" /></td>
@@ -752,74 +758,76 @@
 
 															<div class="portlet-body">
 
-																<h:form id="formav">
-																	<p:repeat value="#{userSelectCategory.av}" var="it">
-																		<h:panelGrid columns="3" style="width:100%"
-																			columnClasses="logo,detail">
-																			<p:commandLink update=":formav:avDetail"
-																				oncomplete="PF('avDialog').show()">
-																				<f:setPropertyActionListener value="#{it}"
-																					target="#{userSelectCategory.selectedItem}" />
-																				<p:graphicImage
-																					name="demo/images/car/#{car.brand}-big.gif" />
-																			</p:commandLink>
+																<!-- 																<h:form id="formav"> -->
+																<!-- 																	<p:repeat value="#{userSelectCategory.av}" var="it"> -->
+																<!-- 																		<h:panelGrid columns="3" style="width:100%" -->
+																<!-- 																			columnClasses="logo,detail"> -->
+																<!-- 																			<p:commandLink update=":formav:avDetail" -->
+																<!-- 																				oncomplete="PF('avDialog').show()"> -->
+																<!-- 																				<f:setPropertyActionListener value="#{it}" -->
+																<!-- 																					target="#{userSelectCategory.selectedItem}" /> -->
+																<!-- 																																								<p:graphicImage -->
+																<!-- 																																									name="demo/images/car/#{car.brand}-big.gif" /> -->
+																<!-- 																			</p:commandLink> -->
 
-																			<p:outputPanel>
-																				<h:panelGrid columns="2" cellpadding="5">
-																					<h:outputText value="AuktionId:" />
-																					<h:outputText value="#{it.item_id}"
-																						style="font-weight: bold" />
+																<!-- 																			<p:outputPanel> -->
+																<!-- 																				<h:panelGrid columns="2" cellpadding="5"> -->
+																<!-- 																					<h:outputText value="AuktionId:" /> -->
+																<!-- 																					<h:outputText value="#{it.item_id}" -->
+																<!-- 																						style="font-weight: bold" /> -->
 
-																					<h:outputText value="Name:" />
-																					<h:outputText value="#{it.name}"
-																						style="font-weight: bold" />
+																<!-- 																					<h:outputText value="Name:" /> -->
+																<!-- 																					<h:outputText value="#{it.name}" -->
+																<!-- 																						style="font-weight: bold" /> -->
 
-																					<h:outputText value="Aktuellerpreis:" />
-																					<h:outputText value="#{it.initialPrice}"
-																						style="font-weight: bold" />
-																					<h:outputText value="Restzeit:" />
-																					<h:outputText value="#{it.endTime}"
-																						style="font-weight: bold" />
-																				</h:panelGrid>
-																			</p:outputPanel>
-																		</h:panelGrid>
-																		<hr />
-																	</p:repeat>
+																<!-- 																					<h:outputText value="Aktuellerpreis:" /> -->
+																<!-- 																					<h:outputText value="#{it.initialPrice}" -->
+																<!-- 																						style="font-weight: bold" /> -->
+																<!-- 																					<h:outputText value="Restzeit:" /> -->
+																<!-- 																					<h:outputText value="#{it.endTime}" -->
+																<!-- 																						style="font-weight: bold" /> -->
+																<!-- 																				</h:panelGrid> -->
+																<!-- 																			</p:outputPanel> -->
+																<!-- 																		</h:panelGrid> -->
+																<!-- 																		<hr /> -->
+																<!-- 																	</p:repeat> -->
 
-																	<p:dialog header="Car Info" widgetVar="avDialog"
-																		modal="true" showEffect="blind" hideEffect="explode"
-																		resizable="false">
-																		<p:outputPanel id="avDetail"
-																			style="text-align:center;">
-																			<p:panelGrid columns="2"
-																				rendered="#{not empty userSelectCategory.selectedItem}"
-																				columnClasses="label,value">
-																				<f:facet name="header">
-																					<p:graphicImage
-																						name="#{not empty userSelectCategory.selectedItem.photo}-big.gif" />
-																				</f:facet>
+																<!-- 																	<p:dialog header="Car Info" widgetVar="avDialog" -->
+																<!-- 																		modal="true" showEffect="blind" hideEffect="explode" -->
+																<!-- 																		resizable="false"> -->
+																<!-- 																		<p:outputPanel id="avDetail" -->
+																<!-- 																			style="text-align:center;"> -->
+																<!-- 																			<p:panelGrid columns="2" -->
+																<!-- 																				rendered="#{not empty userSelectCategory.selectedItem}" -->
+																<!-- 																				columnClasses="label,value"> -->
+																<!-- 																				<f:facet name="header"> -->
+																<!-- 																					<p:graphicImage -->
+																<!-- 																						name="#{not empty userSelectCategory.selectedItem.photo}.gif" /> -->
+																<!-- 																				</f:facet> -->
 
-																				<h:outputText value="AuktionId:" />
-																				<h:outputText value="#{it.item_id}"
-																					style="font-weight: bold" />
+																<!-- 																				<h:outputText value="AuktionId:" /> -->
+																<!-- 																				<h:outputText value="#{it.item_id}" -->
+																<!-- 																					style="font-weight: bold" /> -->
 
-																				<h:outputText value="Name:" />
-																				<h:outputText value="#{it.name}"
-																					style="font-weight: bold" />
+																<!-- 																				<h:outputText value="Name:" /> -->
+																<!-- 																				<h:outputText value="#{it.name}" -->
+																<!-- 																					style="font-weight: bold" /> -->
 
-																				<h:outputText value="Aktuellerpreis:" />
-																				<h:outputText value="#{it.initialPrice}"
-																					style="font-weight: bold" />
-																				<h:outputText value="Restzeit:" />
-																				<h:outputText value="#{it.endTime}" />
-																			</p:panelGrid>
-																		</p:outputPanel>
-																	</p:dialog>
-																</h:form>
+																<!-- 																				<h:outputText value="Aktuellerpreis:" /> -->
+																<!-- 																				<h:outputText value="#{it.initialPrice}" -->
+																<!-- 																					style="font-weight: bold" /> -->
+																<!-- 																				<h:outputText value="Restzeit:" /> -->
+																<!-- 																				<h:outputText value="#{it.endTime}" /> -->
+																<!-- 																			</p:panelGrid> -->
+																<!-- 																		</p:outputPanel> -->
+																<!-- 																	</p:dialog> -->
+																<!-- 																</h:form> -->
 															</div>
 
 														</div>
-														<div class="col-lg-6"></div>
+														<div class="col-lg-6">
+															<h2>noch kein Item</h2>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -830,9 +838,78 @@
 														<div class="col-lg-6">
 															<br /> <br />
 															<hr />
-															<div class="portlet-body"></div>
+															<div class="portlet-body">
+
+																<!-- 																<h:form id="formbkl"> -->
+																<!-- 																	<p:repeat value="#{userSelectCategory.bkl}" var="it"> -->
+																<!-- 																		<h:panelGrid columns="3" style="width:100%" -->
+																<!-- 																			columnClasses="logo,detail"> -->
+																<!-- 																			<p:commandLink update=":formbkl:bklDetail" -->
+																<!-- 																				oncomplete="PF('bklDialog').show()"> -->
+																<!-- 																				<f:setPropertyActionListener value="#{it}" -->
+																<!-- 																					target="#{userSelectCategory.selectedItem}" /> -->
+																<!-- 																																								<p:graphicImage -->
+																<!-- 																																									name="demo/images/car/#{car.brand}-big.gif" /> -->
+																<!-- 																			</p:commandLink> -->
+
+																<!-- 																			<p:outputPanel> -->
+																<!-- 																				<h:panelGrid columns="2" cellpadding="5"> -->
+																<!-- 																					<h:outputText value="AuktionId:" /> -->
+																<!-- 																					<h:outputText value="#{it.item_id}" -->
+																<!-- 																						style="font-weight: bold" /> -->
+
+																<!-- 																					<h:outputText value="Name:" /> -->
+																<!-- 																					<h:outputText value="#{it.name}" -->
+																<!-- 																						style="font-weight: bold" /> -->
+
+																<!-- 																					<h:outputText value="Aktuellerpreis:" /> -->
+																<!-- 																					<h:outputText value="#{it.initialPrice}" -->
+																<!-- 																						style="font-weight: bold" /> -->
+																<!-- 																					<h:outputText value="Restzeit:" /> -->
+																<!-- 																					<h:outputText value="#{it.endTime}" -->
+																<!-- 																						style="font-weight: bold" /> -->
+																<!-- 																				</h:panelGrid> -->
+																<!-- 																			</p:outputPanel> -->
+																<!-- 																		</h:panelGrid> -->
+																<!-- 																		<hr /> -->
+																<!-- 																	</p:repeat> -->
+
+																<!-- 																	<p:dialog header="Car Info" widgetVar="bklDialog" -->
+																<!-- 																		modal="true" showEffect="blind" hideEffect="explode" -->
+																<!-- 																		resizable="false"> -->
+																<!-- 																		<p:outputPanel id="bklDetail" -->
+																<!-- 																			style="text-align:center;"> -->
+																<!-- 																			<p:panelGrid columns="2" -->
+																<!-- 																				rendered="#{not empty userSelectCategory.selectedItem}" -->
+																<!-- 																				columnClasses="label,value"> -->
+																<!-- 																				<f:facet name="header"> -->
+																<!-- 																					<p:graphicImage -->
+																<!-- 																						name="#{not empty userSelectCategory.selectedItem.photo}.gif" /> -->
+																<!-- 																				</f:facet> -->
+
+																<!-- 																				<h:outputText value="AuktionId:" /> -->
+																<!-- 																				<h:outputText value="#{it.item_id}" -->
+																<!-- 																					style="font-weight: bold" /> -->
+
+																<!-- 																				<h:outputText value="Name:" /> -->
+																<!-- 																				<h:outputText value="#{it.name}" -->
+																<!-- 																					style="font-weight: bold" /> -->
+
+																<!-- 																				<h:outputText value="Aktuellerpreis:" /> -->
+																<!-- 																				<h:outputText value="#{it.initialPrice}" -->
+																<!-- 																					style="font-weight: bold" /> -->
+																<!-- 																				<h:outputText value="Restzeit:" /> -->
+																<!-- 																				<h:outputText value="#{it.endTime}" /> -->
+																<!-- 																			</p:panelGrid> -->
+																<!-- 																		</p:outputPanel> -->
+																<!-- 																	</p:dialog> -->
+																<!-- 																</h:form> -->
+
+															</div>
 														</div>
-														<div class="col-lg-6"></div>
+														<div class="col-lg-6">
+															<h2>noch kein Item</h2>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -844,7 +921,9 @@
 															<hr />
 															<div class="portlet-body"></div>
 														</div>
-														<div class="col-lg-6"></div>
+														<div class="col-lg-6">
+															<h2>noch kein Item</h2>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -856,94 +935,96 @@
 															<hr />
 															<div class="portlet-body">
 
-																<h:form id="formfz">
-																	<p:repeat value="#{userSelectCategory.fahrzeuge}"
-																		var="frz">
-																		<h:panelGrid columns="3" style="width:100%"
-																			columnClasses="logo,detail">
-																			<h2>hier soll ein Bild kommen</h2>
-																			<p:outputPanel>
-																				<h:panelGrid columns="2" cellpadding="5">
-																					<h:outputText value="AuktionId:" />
-																					<h:outputText value="#{frz.item_id}"
-																						style="font-weight: bold" />
+																<!-- 																<h:form id="formfz"> -->
+																<!-- 																	<p:repeat value="#{userSelectCategory.fahrzeuge}" -->
+																<!-- 																		var="frz"> -->
+																<!-- 																		<h:panelGrid columns="3" style="width:100%" -->
+																<!-- 																			columnClasses="logo,detail"> -->
+																<!-- 																			<h2>hier soll ein Bild kommen</h2> -->
+																<!-- 																			<p:outputPanel> -->
+																<!-- 																				<h:panelGrid columns="2" cellpadding="5"> -->
+																<!-- 																					<h:outputText value="AuktionId:" /> -->
+																<!-- 																					<h:outputText value="#{frz.item_id}" -->
+																<!-- 																						style="font-weight: bold" /> -->
 
-																					<h:outputText value="Name:" />
-																					<h:outputText value="#{frz.name}"
-																						style="font-weight: bold" />
+																<!-- 																					<h:outputText value="Name:" /> -->
+																<!-- 																					<h:outputText value="#{frz.name}" -->
+																<!-- 																						style="font-weight: bold" /> -->
 
-																					<h:outputText value="Aktuellerpreis:" />
-																					<h:outputText value="#{frz.initialPrice}"
-																						style="font-weight: bold" />
-																					<h:outputText value="Restzeit:" />
-																					<h:outputText value="#{frz.endTime}"
-																						style="font-weight: bold" />
-																				</h:panelGrid>
+																<!-- 																					<h:outputText value="Aktuellerpreis:" /> -->
+																<!-- 																					<h:outputText value="#{frz.initialPrice}" -->
+																<!-- 																						style="font-weight: bold" /> -->
+																<!-- 																					<h:outputText value="Restzeit:" /> -->
+																<!-- 																					<h:outputText value="#{frz.endTime}" -->
+																<!-- 																						style="font-weight: bold" /> -->
+																<!-- 																				</h:panelGrid> -->
 
-																			</p:outputPanel>
-																			<p:commandLink update=":formfz:fzDetail">
-																				<f:setPropertyActionListener value="#{frz}"
-																					target="#{userSelectCategory.selectedItem}" />
-																				<li class="active"><button
-																						class="btn btn-green" data-toggle="modal"
-																						data-target="#fzdlg">Details</button></li>
-																			</p:commandLink>
-																		</h:panelGrid>
-																		<hr />
-																	</p:repeat>
+																<!-- 																			</p:outputPanel> -->
+																<!-- 																			<p:commandLink update=":formfz:fzDetail"> -->
+																<!-- 																				<f:setPropertyActionListener value="#{frz}" -->
+																<!-- 																					target="#{userSelectCategory.selectedItem}" /> -->
+																<!-- 																				<li class="active"><button -->
+																<!-- 																						class="btn btn-green" data-toggle="modal" -->
+																<!-- 																						data-target="#fzdlg">Details</button></li> -->
+																<!-- 																			</p:commandLink> -->
+																<!-- 																		</h:panelGrid> -->
+																<!-- 																		<hr /> -->
+																<!-- 																	</p:repeat> -->
 
-																	<div class="modal modal-flex fade" id="fzdlg"
-																		tabindex="-1" role="dialog"
-																		aria-labelledby="flexModalLabel" aria-hidden="true"
-																		resizable="true" height="800">
-																		<div class="modal-dialog">
-																			<div class="modal-content" height="1000">
-																				<div class="modal-header">
-																					<button type="button" class="close"
-																						data-dismiss="modal" aria-hidden="true">&times;</button>
-																					<h4 class="modal-title" id="flexModalLabel">Auktion
-																						Details</h4>
-																				</div>
-																				<p:outputPanel id="fzDetail"
-																					style="text-align:center;">
-																					<p:panelGrid columns="8"
-																						rendered="#{not empty userSelectCategory.selectedItem}"
-																						columnClasses="label,value">
-																						<f:facet name="header">
-																							<h:commandLink>
-																								<h:graphicImage
-																									value="./src/main/resources/img/flex-admin-logo.png" />
-																							</h:commandLink>
+																<!-- 																	<div class="modal modal-flex fade" id="fzdlg" -->
+																<!-- 																		tabindex="-1" role="dialog" -->
+																<!-- 																		aria-labelledby="flexModalLabel" aria-hidden="true" -->
+																<!-- 																		resizable="true" height="800"> -->
+																<!-- 																		<div class="modal-dialog"> -->
+																<!-- 																			<div class="modal-content" height="1000"> -->
+																<!-- 																				<div class="modal-header"> -->
+																<!-- 																					<button type="button" class="close" -->
+																<!-- 																						data-dismiss="modal" aria-hidden="true">&times;</button> -->
+																<!-- 																					<h4 class="modal-title" id="flexModalLabel">Auktion -->
+																<!-- 																						Details</h4> -->
+																<!-- 																				</div> -->
+																<!-- 																				<p:outputPanel id="fzDetail" -->
+																<!-- 																					style="text-align:center;"> -->
+																<!-- 																					<p:panelGrid columns="8" -->
+																<!-- 																						rendered="#{not empty userSelectCategory.selectedItem}" -->
+																<!-- 																						columnClasses="label,value"> -->
+																<!-- 																						<f:facet name="header"> -->
+																<!-- 																							<h:commandLink> -->
+																<!-- 																								<h:graphicImage -->
+																<!-- 																									value="./src/main/resources/img/flex-admin-logo.png" /> -->
+																<!-- 																							</h:commandLink> -->
 
-																						</f:facet>
+																<!-- 																						</f:facet> -->
 
-																						<h:outputText value="AuktionId:" />
-																						<h:outputText
-																							value="#{userSelectCategory.selectedItem.item_id}"
-																							style="font-weight: bold" />
+																<!-- 																						<h:outputText value="AuktionId:" /> -->
+																<!-- 																						<h:outputText -->
+																<!-- 																							value="#{userSelectCategory.selectedItem.item_id}" -->
+																<!-- 																							style="font-weight: bold" /> -->
 
-																						<h:outputText value="Name:" />
-																						<h:outputText
-																							value="#{userSelectCategory.selectedItem.name}"
-																							style="font-weight: bold" />
+																<!-- 																						<h:outputText value="Name:" /> -->
+																<!-- 																						<h:outputText -->
+																<!-- 																							value="#{userSelectCategory.selectedItem.name}" -->
+																<!-- 																							style="font-weight: bold" /> -->
 
-																						<h:outputText value="Aktuellerpreis:" />
-																						<h:outputText
-																							value="#{userSelectCategory.selectedItem.initialPrice}"
-																							style="font-weight: bold" />
-																						<h:outputText value="Restzeit:" />
-																						<h:outputText
-																							value="#{userSelectCategory.selectedItem.endTime}" />
-																					</p:panelGrid>
-																				</p:outputPanel>
-																			</div>
-																		</div>
+																<!-- 																						<h:outputText value="Aktuellerpreis:" /> -->
+																<!-- 																						<h:outputText -->
+																<!-- 																							value="#{userSelectCategory.selectedItem.initialPrice}" -->
+																<!-- 																							style="font-weight: bold" /> -->
+																<!-- 																						<h:outputText value="Restzeit:" /> -->
+																<!-- 																						<h:outputText -->
+																<!-- 																							value="#{userSelectCategory.selectedItem.endTime}" /> -->
+																<!-- 																					</p:panelGrid> -->
+																<!-- 																				</p:outputPanel> -->
+																<!-- 																			</div> -->
+																<!-- 																		</div> -->
 
-																	</div>
-																</h:form>
+																<!-- 																	</div> -->
+																<!-- 																</h:form> -->
 															</div>
 														</div>
-														<div class="col-lg-6"></div>
+														<div class="col-lg-6">
+															<h2>noch kein Item</h2>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -955,7 +1036,9 @@
 															<hr />
 															<div class="portlet-body"></div>
 														</div>
-														<div class="col-lg-6"></div>
+														<div class="col-lg-6">
+															<h2>noch kein Item</h2>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -967,7 +1050,9 @@
 															<hr />
 															<div class="portlet-body"></div>
 														</div>
-														<div class="col-lg-6"></div>
+														<div class="col-lg-6">
+															<h2>noch kein Item</h2>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -979,7 +1064,9 @@
 															<hr />
 															<div class="portlet-body"></div>
 														</div>
-														<div class="col-lg-6"></div>
+														<div class="col-lg-6">
+															<h2>noch kein Item</h2>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -991,7 +1078,9 @@
 															<hr />
 															<div class="portlet-body"></div>
 														</div>
-														<div class="col-lg-6"></div>
+														<div class="col-lg-6">
+															<h2>noch kein Item</h2>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -1003,7 +1092,9 @@
 															<hr />
 															<div class="portlet-body"></div>
 														</div>
-														<div class="col-lg-6"></div>
+														<div class="col-lg-6">
+															<h2>noch kein Item</h2>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -1015,7 +1106,9 @@
 															<hr />
 															<div class="portlet-body"></div>
 														</div>
-														<div class="col-lg-6"></div>
+														<div class="col-lg-6">
+															<h2>noch kein Item</h2>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -1027,7 +1120,9 @@
 															<hr />
 															<div class="portlet-body"></div>
 														</div>
-														<div class="col-lg-6"></div>
+														<div class="col-lg-6">
+															<h2>noch kein Item</h2>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -1039,7 +1134,9 @@
 															<hr />
 															<div class="portlet-body"></div>
 														</div>
-														<div class="col-lg-6"></div>
+														<div class="col-lg-6">
+															<h2>noch kein Item</h2>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -1051,7 +1148,9 @@
 															<hr />
 															<div class="portlet-body"></div>
 														</div>
-														<div class="col-lg-6"></div>
+														<div class="col-lg-6">
+															<h2>noch kein Item</h2>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -1063,7 +1162,9 @@
 															<hr />
 															<div class="portlet-body"></div>
 														</div>
-														<div class="col-lg-6"></div>
+														<div class="col-lg-6">
+															<h2>noch kein Item</h2>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -1075,7 +1176,9 @@
 															<hr />
 															<div class="portlet-body"></div>
 														</div>
-														<div class="col-lg-6"></div>
+														<div class="col-lg-6">
+															<h2>noch kein Item</h2>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -1087,7 +1190,9 @@
 															<hr />
 															<div class="portlet-body"></div>
 														</div>
-														<div class="col-lg-6"></div>
+														<div class="col-lg-6">
+															<h2>noch kein Item</h2>
+														</div>
 													</div>
 												</div>
 											</div>
